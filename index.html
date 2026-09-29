@@ -1,0 +1,1129 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111">
+<title>Wedding Photographer v37 REMINDERS</title>
+<style>
+:root{--bg:#0e0e0e;--panel:#191919;--panel2:#222;--line:#303030;--text:#f5f5f5;--muted:#999}
+*{box-sizing:border-box}body{margin:0;background:#080808;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.app{max-width:540px;margin:auto;min-height:100vh;background:var(--bg)}
+header{padding:20px 16px 12px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5;background:rgba(14,14,14,.96);backdrop-filter:blur(12px)}
+h1{font-size:25px;margin:0}h2{font-size:22px;margin:8px 0 14px}h3{font-size:16px;margin:22px 0 10px}.muted{color:var(--muted);font-size:13px}
+.content{padding:8px 15px 105px}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:15px;margin:11px 0}.hero{background:linear-gradient(145deg,#292929,#181818)}
+.date{font-size:13px;color:#aaa}.names{font-size:23px;font-weight:700;margin:6px 0}.row{display:flex;gap:9px}.stat{flex:1;background:#131313;border-radius:13px;padding:11px}.stat b{display:block;font-size:17px;margin-bottom:3px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tile{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:15px;min-height:92px}.tile:active{transform:scale(.98)}.icon{font-size:24px}.tile b{display:block;margin-top:7px}.tile span{font-size:12px;color:var(--muted)}
+button.primary{border:0;border-radius:12px;padding:11px 14px;background:#f2f2f2;color:#111;font-weight:700}button.secondary{border:1px solid #444;border-radius:12px;padding:10px 13px;background:#242424;color:#fff}button.danger{background:#291919;border-color:#633;color:#fff}
+input,textarea,select{width:100%;border:1px solid #3a3a3a;background:#121212;color:#fff;border-radius:11px;padding:11px 12px;outline:0}textarea{min-height:75px;resize:vertical}
+label{display:block;font-size:12px;color:#aaa;margin:11px 0 6px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.actions{display:flex;gap:8px;margin-top:13px}.actions>*{flex:1}
+.badge{display:inline-block;padding:5px 8px;border-radius:9px;background:#292929;color:#ddd;font-size:11px;margin:2px}.ok{background:#18321f}.warn{background:#352d18}
+.wedding-item{display:flex;justify-content:space-between;gap:10px;align-items:center}.wedding-item:active{opacity:.8}.wedding-info{min-width:0}.wedding-info b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.wedding-actions{display:flex;gap:5px;flex-shrink:0}
+.timeline{border-left:2px solid #444;margin:14px 0 4px 8px;padding-left:18px}.event{position:relative;margin:18px 0}.event:before{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:#eee;left:-24px;top:4px}.eventrow{display:flex;justify-content:space-between;gap:8px}.time{font-weight:700}.eventactions{display:flex;gap:4px}.eventactions button{padding:5px 8px}
+.check{display:flex;align-items:flex-start;gap:9px;padding:8px 0;border-bottom:1px solid #272727}.check input{width:auto;margin-top:3px}.check label{margin:0;color:#eee;font-size:14px}
+.section-title{display:flex;justify-content:space-between;align-items:center;gap:8px}.section-title b{font-size:16px}.smallbtn{padding:6px 9px!important;font-size:12px!important}
+.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(540px,100%);background:#181818;border-top:1px solid #303030;display:flex;justify-content:space-around;padding:8px 3px calc(8px + env(safe-area-inset-bottom));z-index:10}.bottom button{border:0;background:none;color:#999;font-size:11px;min-width:65px}.bottom b{display:block;color:#fff;font-size:20px;margin-bottom:2px}
+
+.calendar-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.calendar-nav{display:flex;gap:6px}.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.cal-dow{font-size:12px;text-align:center;color:#888;padding:4px 0}.cal-day{min-height:68px;border:1px solid #303030;border-radius:12px;background:#171717;padding:7px;cursor:pointer}.cal-day.empty{opacity:0;border:0;background:transparent;cursor:default}.cal-day .num{font-weight:700}.cal-day.booked{border-color:#7a3030;background:#211616}.cal-day.hold{border-color:#796126;background:#211d14}.cal-day.contract{border-color:#315c7a;background:#151d24}.cal-day.today{box-shadow:inset 0 0 0 1px #fff}.cal-day .dot{font-size:10px;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.calendar-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.calendar-legend span{font-size:12px}.booking-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #292929}.booking-row:last-child{border-bottom:0}.booking-date{width:58px;font-weight:700}.booking-main{flex:1;min-width:0}.booking-main b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.booking-actions{display:flex;gap:5px}.modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:20px;z-index:1000;backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}.modal.show{display:flex}.sheet{width:min(560px,100%);margin:0 auto;background:linear-gradient(145deg,#1b1d21,#111316);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:18px;max-height:min(88vh,760px);overflow:auto;box-shadow:0 24px 80px rgba(0,0,0,.65)}.sheethead{display:flex;justify-content:space-between;align-items:center}.sheethead h2{margin:0}.sheethead button{border:0;background:none;color:#fff;font-size:27px}
+.notice{font-size:12px;color:#aaa;background:#131313;border:1px solid #2c2c2c;border-radius:11px;padding:10px;margin-top:10px}.empty{text-align:center;padding:30px 10px;color:#888}
+</style>
+
+<style>
+.idea-link{cursor:pointer;transition:transform .12s ease, border-color .12s ease}
+.idea-link:active{transform:scale(.985)}
+.idea-action{display:block;margin-top:10px;font-weight:700}
+</style>
+<style>
+.tile{cursor:pointer}.tile:active{transform:scale(.985)}
+</style>
+
+<style id="v20-design">
+:root{--bg:#090a0c;--surface:#111316;--surface2:#17191d;--text:#f4f3ef;--muted:#969ba3;--line:#292d33;--accent:#d6a85f;--soft:rgba(214,168,95,.13)}
+*{box-sizing:border-box}html{background:var(--bg)}
+body{background:radial-gradient(circle at 50% -10%,rgba(214,168,95,.07),transparent 35%),var(--bg)!important;color:var(--text)!important;min-height:100vh;padding-bottom:96px!important;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,system-ui,sans-serif}
+header{background:rgba(9,10,12,.86)!important;backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important;border-bottom:1px solid rgba(255,255,255,.07)!important}
+main,#app{max-width:760px;margin:0 auto}h1,h2,h3{letter-spacing:-.035em!important}h2{font-size:27px!important;margin:18px 0 14px!important}
+.card,.tile,.panel,.stat{background:linear-gradient(145deg,rgba(27,29,34,.98),rgba(16,18,21,.98))!important;border:1px solid rgba(255,255,255,.075)!important;border-radius:20px!important;box-shadow:0 10px 35px rgba(0,0,0,.18)!important;color:var(--text)!important}
+.card{padding:17px!important;margin-bottom:11px!important}.tile{padding:17px!important}
+.muted{color:var(--muted)!important}input,textarea,select{background:#0d0f12!important;color:var(--text)!important;border:1px solid var(--line)!important;border-radius:13px!important;padding:12px 13px!important;outline:none!important}
+input:focus,textarea:focus,select:focus{border-color:rgba(214,168,95,.55)!important;box-shadow:0 0 0 3px rgba(214,168,95,.08)!important}
+button{font-family:inherit!important;border-radius:13px!important;min-height:42px!important}.primary{background:var(--accent)!important;color:#151515!important;border:0!important;font-weight:750!important}.secondary{background:var(--surface2)!important;color:var(--text)!important;border:1px solid var(--line)!important}
+.badge{background:var(--soft)!important;color:var(--accent)!important;border:1px solid rgba(214,168,95,.22)!important;border-radius:999px!important;padding:5px 9px!important}
+.v20-bottom-nav{position:fixed;left:10px;right:10px;bottom:10px;z-index:99999;max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:7px;background:rgba(19,21,24,.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.09);border-radius:22px;box-shadow:0 16px 50px rgba(0,0,0,.5)}
+.v20-bottom-nav button{background:transparent!important;border:0!important;color:#8e949c!important;min-height:54px!important;padding:5px 2px!important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:10px!important;font-weight:650!important}
+.v20-bottom-nav .v20-icon{font-size:19px;line-height:1}.v20-bottom-nav button.active{color:var(--accent)!important}
+.v20-bottom-nav button.active .v20-icon{filter:drop-shadow(0 0 7px rgba(214,168,95,.25))}
+.v18-hero{background:linear-gradient(145deg,#1b1d21,#101215)!important;border-color:rgba(214,168,95,.18)!important}
+.v18-kicker{color:var(--accent)!important}.v18-big{font-weight:850!important}
+.v18-nav button{background:var(--surface2)!important;border-color:var(--line)!important}
+.v18-mini{background:linear-gradient(145deg,rgba(27,29,34,.98),rgba(16,18,21,.98))!important}
+@media(max-width:480px){h2{font-size:25px!important}.card{padding:15px!important}.v20-bottom-nav{left:7px;right:7px;bottom:7px}}
+.modal-title{font-size:18px!important;font-weight:750!important;letter-spacing:-.02em!important;color:var(--text)}
+
+.v21-home-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:10px 0 16px}.v21-home-stat{padding:13px;border:1px solid rgba(255,255,255,.07);border-radius:16px;background:linear-gradient(145deg,#1b1d21,#111316);cursor:pointer}.v21-home-stat b{display:block;font-size:21px;margin-bottom:3px}.v21-home-stat span{font-size:11px;color:var(--muted)}.v21-section{margin:20px 0 9px;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:750}.v21-actions{display:flex;gap:8px;flex-wrap:wrap}.v21-pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.v21-stage{padding:12px;border-radius:15px;background:#111316;border:1px solid rgba(255,255,255,.07)}.v21-stage b{font-size:20px;display:block}.v21-stage span{font-size:10px;color:var(--muted)}.v21-list{display:grid;gap:8px}.v21-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 14px;background:var(--surface2);border:1px solid rgba(255,255,255,.07);border-radius:15px}.v21-row .muted{font-size:11px;margin-top:3px}.v21-actions{flex-shrink:0}
+@media(max-width:480px){.v21-pipeline{grid-template-columns:repeat(3,1fr)}.v21-home-stat{padding:11px 9px}}
+</style>
+
+<style id="v23-modal-fix">
+.modal.show .sheet{animation:v23DialogIn .16s ease-out both}
+@keyframes v23DialogIn{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.sheethead{position:sticky;top:-18px;padding:2px 0 12px;background:linear-gradient(#1b1d21 82%,transparent);z-index:2}
+.sheethead button{width:38px;height:38px;border-radius:50%!important;background:#292c31!important;border:1px solid rgba(255,255,255,.09)!important;color:#fff!important;font-size:25px!important;line-height:1}
+.sheet .actions{position:sticky;bottom:-18px;padding-top:12px;background:linear-gradient(transparent,#111316 35%);z-index:2}
+@media(max-width:480px){.modal{padding:12px}.sheet{max-height:90vh;border-radius:22px;padding:16px}.sheethead{top:-16px}}
+</style>
+<style id="v24-contact-ui">
+.v24-contact-card{margin-top:8px;padding-top:10px;border-top:1px solid var(--line,#292d33)}
+.v24-contact-phone{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:7px}
+.v24-phone-number{font-weight:700;color:var(--accent,#d6a85f);word-break:break-all}
+.v24-contact-actions{display:flex;gap:6px;flex-wrap:wrap}
+.v24-contact-actions button{min-height:34px!important;padding:6px 9px!important;font-size:12px!important}
+</style>
+
+<style id="v29-ios-design">
+:root{--ios-bg:#000;--ios-card:#1c1c1e;--ios-card2:#2c2c2e;--ios-text:#f5f5f7;--ios-secondary:#98989f;--ios-sep:#38383a;--ios-blue:#0a84ff;--ios-green:#30d158;--ios-red:#ff453a;--ios-orange:#ff9f0a}
+html,body{margin:0!important;width:100%!important;max-width:100%!important;overflow-x:hidden!important;background:var(--ios-bg)!important;color:var(--ios-text)!important;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",system-ui,sans-serif!important;-webkit-font-smoothing:antialiased}
+*,*:before,*:after{box-sizing:border-box!important;min-width:0}
+.app{width:100%!important;max-width:540px!important;min-width:0!important;margin:0 auto!important;overflow-x:hidden!important;background:var(--ios-bg)!important}
+.content{width:100%!important;max-width:100%!important;min-width:0!important;padding:12px 15px calc(112px + env(safe-area-inset-bottom))!important;overflow-x:hidden!important}
+header{width:100%!important;min-width:0!important;background:rgba(0,0,0,.82)!important;border-bottom:1px solid rgba(84,84,88,.45)!important;backdrop-filter:saturate(180%) blur(22px)!important;-webkit-backdrop-filter:saturate(180%) blur(22px)!important}
+h1{font-size:28px!important;line-height:1.08!important;letter-spacing:-.6px!important}h2{font-size:28px!important;line-height:1.12!important;letter-spacing:-.5px!important;font-weight:750!important;margin:18px 0 14px!important}h3{font-size:20px!important;letter-spacing:-.2px!important}
+.card,.tile,.panel,.stat{background:var(--ios-card)!important;border:1px solid rgba(84,84,88,.35)!important;border-radius:18px!important;box-shadow:0 1px 2px rgba(0,0,0,.2)!important;min-width:0!important;max-width:100%!important}
+button{font-family:inherit!important;border-radius:12px!important}button.primary{background:var(--ios-blue)!important;color:#fff!important;border:0!important}button.secondary{background:var(--ios-card2)!important;color:var(--ios-text)!important;border:1px solid rgba(84,84,88,.55)!important}
+input,textarea,select{background:#2c2c2e!important;color:var(--ios-text)!important;border:0!important;border-radius:11px!important;min-width:0!important}
+.calendar-head{width:100%!important;min-width:0!important;display:grid!important;grid-template-columns:44px minmax(0,1fr) 44px!important;align-items:center!important;gap:8px!important}.calendar-head>b{text-align:center!important;min-width:0!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}.calendar-head button{width:44px!important;min-width:44px!important;height:44px!important;padding:0!important;border-radius:50%!important}
+.calendar-grid{display:grid!important;width:100%!important;max-width:100%!important;min-width:0!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:5px!important;overflow:hidden!important}
+.cal-dow{min-width:0!important;width:100%!important;font-size:11px!important;text-align:center!important;color:var(--ios-secondary)!important;padding:5px 0!important;overflow:hidden!important}
+.cal-day{width:100%!important;min-width:0!important;max-width:100%!important;min-height:64px!important;height:auto!important;padding:6px 5px!important;border:1px solid var(--ios-sep)!important;border-radius:12px!important;background:#1c1c1e!important;overflow:hidden!important}
+.cal-day.empty{min-width:0!important}.cal-day .num{font-size:18px!important;line-height:20px!important;font-weight:700!important}.cal-day .dot{display:block!important;max-width:100%!important;min-width:0!important;font-size:9px!important;line-height:12px!important;margin-top:5px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}.cal-day .muted{display:block!important;max-width:100%!important;min-width:0!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;font-size:9px!important}.cal-day.booked{border-color:rgba(255,69,58,.65)!important;background:rgba(255,69,58,.09)!important}.cal-day.hold{border-color:rgba(255,159,10,.65)!important;background:rgba(255,159,10,.09)!important}.cal-day.contract{border-color:rgba(10,132,255,.7)!important;background:rgba(10,132,255,.09)!important}.cal-day.today{box-shadow:inset 0 0 0 2px #fff!important}
+.calendar-legend{display:flex!important;flex-wrap:wrap!important;gap:6px 10px!important;max-width:100%!important}.calendar-legend span{font-size:11px!important;color:var(--ios-secondary)!important}
+.booking-row{min-width:0!important;max-width:100%!important}.booking-main{min-width:0!important;overflow:hidden!important}.booking-main b,.booking-main span{min-width:0!important;max-width:100%!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+.grid,.formgrid{min-width:0!important;max-width:100%!important}.grid>*,.formgrid>*{min-width:0!important}
+.bottom{width:min(540px,100%)!important;max-width:100%!important;bottom:0!important;background:rgba(28,28,30,.88)!important;border:1px solid rgba(84,84,88,.45)!important;border-bottom:0!important;border-radius:20px 20px 0 0!important;padding-bottom:calc(8px + env(safe-area-inset-bottom))!important;backdrop-filter:saturate(180%) blur(24px)!important;-webkit-backdrop-filter:saturate(180%) blur(24px)!important}
+@media(max-width:380px){.calendar-grid{gap:3px!important}.cal-day{min-height:58px!important;padding:5px 3px!important}.cal-day .num{font-size:16px!important}.cal-day .dot,.cal-day .muted{font-size:8px!important}.calendar-head{grid-template-columns:40px minmax(0,1fr) 40px!important}.calendar-head button{width:40px!important;min-width:40px!important}}
+</style>
+
+<style id="v31-modal-keyboard-contact-fix">
+/* v31: modal always above navigation; keyboard-safe editing */
+.v20-bottom-nav{z-index:900!important}
+.modal{z-index:10000!important;align-items:flex-start!important;overflow-y:auto!important;padding:calc(10px + env(safe-area-inset-top)) 12px calc(18px + env(safe-area-inset-bottom))!important}
+.modal.show{display:flex!important}
+.modal .sheet{width:min(560px,100%)!important;height:auto!important;max-height:calc(100dvh - 20px - env(safe-area-inset-top) - env(safe-area-inset-bottom))!important;margin:0 auto!important;display:flex!important;flex-direction:column!important;overflow:hidden!important}
+.modal .sheethead{flex:0 0 auto!important}
+.modal #modalBody{min-height:0!important;flex:1 1 auto!important;overflow-y:auto!important;overflow-x:hidden!important;padding-bottom:8px!important;-webkit-overflow-scrolling:touch!important}
+.modal #modalBody .actions{position:sticky!important;bottom:0!important;z-index:20!important;display:flex!important;gap:8px!important;padding:12px 0 calc(8px + env(safe-area-inset-bottom))!important;margin:0!important;background:linear-gradient(transparent,var(--surface,#111316) 22%)!important}
+.modal #modalBody .actions button{flex:1 1 0!important;min-height:48px!important}
+@media(max-width:480px){.modal .sheet{border-radius:20px!important;max-height:calc(100dvh - 12px - env(safe-area-inset-top) - env(safe-area-inset-bottom))!important}.modal #modalBody .actions{padding-bottom:12px!important}}
+/* When a modal is open, the app navigation must never cover it. */
+body.modal-open .v20-bottom-nav{display:none!important}
+.v31-client-main{display:flex;flex-wrap:wrap;gap:7px 12px;margin-top:9px;padding-top:9px;border-top:1px solid var(--line,#292d33)}
+.v31-client-main .v31-contact-name{font-weight:700}
+.v31-client-main .v31-contact-phone{color:var(--accent,#d6a85f);font-weight:700}
+.v31-client-main .v31-contact-tg{color:#8ab4ff}
+</style>
+<style id="v32-contact-actions-fix">.v32-client-actions{justify-content:flex-start!important;margin-top:9px!important;padding-top:9px!important;border-top:1px solid var(--ios-sep,#38383a)!important}.v32-client-actions .v24-contact-actions{display:flex!important;gap:7px!important}.v32-client-actions button{min-width:42px!important;min-height:38px!important}</style>
+<style id="v35-ios-polish">
+:root{--ios-blue:#0a84ff;--ios-fill:rgba(118,118,128,.18);--ios-sep:rgba(84,84,88,.48)}
+body{overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+header{padding:calc(12px + env(safe-area-inset-top)) 15px 11px!important;min-height:72px!important}
+.v35-head-left{display:flex;align-items:center;gap:9px;min-width:0}
+.v35-back{display:none!important;width:38px!important;height:38px!important;min-height:38px!important;padding:0!important;border-radius:50%!important;border:1px solid rgba(255,255,255,.08)!important;background:var(--surface2)!important;color:#fff!important;font-size:30px!important;line-height:32px!important;font-weight:300!important}
+.v35-back.visible{display:block!important}
+.v35-add{width:46px!important;height:46px!important;min-height:46px!important;border-radius:15px!important;font-size:25px!important;padding:0!important;flex:0 0 auto}
+.content{padding-top:10px!important;padding-bottom:calc(104px + env(safe-area-inset-bottom))!important}
+.card,.tile,.v21-home-stat{transition:transform .16s ease,border-color .16s ease,background .16s ease}
+.card[onclick]:active,.tile:active,.v21-home-stat:active{transform:scale(.985)}
+.v35-search{display:flex;align-items:center;gap:8px;background:var(--surface2);border:1px solid var(--line);border-radius:16px;padding:7px 10px;margin:10px 0 14px}
+.v35-search span{font-size:18px;opacity:.7}.v35-search input{border:0!important;background:transparent!important;box-shadow:none!important;padding:8px 4px!important;font-size:16px!important}
+.v35-section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:18px 0 8px}.v35-section-head h3{margin:0!important}
+.v35-quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0 16px}
+.v35-quick button{min-height:52px!important;text-align:left;padding:10px 12px!important;background:var(--surface2)!important;border:1px solid var(--line)!important}
+.v35-quick button b{display:block;font-size:14px}.v35-quick button span{font-size:11px;color:var(--muted)}
+.calendar-card{overflow:hidden!important;width:100%!important;max-width:100%!important}
+.calendar-grid{width:100%!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:4px!important}
+.cal-dow{min-width:0!important;font-size:11px!important}
+.cal-day{min-width:0!important;min-height:62px!important;padding:6px 4px!important;border-radius:11px!important;overflow:hidden!important}
+.cal-day .num{font-size:15px!important}.cal-day .dot{font-size:8px!important;line-height:1.15!important;max-width:100%!important}
+@media(max-width:430px){.cal-day{min-height:55px!important;padding:5px 3px!important}.cal-day .num{font-size:14px!important}.cal-day .dot{font-size:7px!important}.calendar-grid{gap:3px!important}}
+.v35-modal-actions{position:sticky;bottom:0;z-index:50;padding-top:10px;background:linear-gradient(transparent,var(--surface,#111316) 30%)}
+.v20-bottom-nav{padding-bottom:calc(7px + env(safe-area-inset-bottom))!important}
+.page-enter{animation:v35PageIn .18s ease-out both}@keyframes v35PageIn{from{opacity:.55;transform:translateX(7px)}to{opacity:1;transform:none}}
+</style>
+
+<style id="v37-reminder-notifications">
+.v37-notify{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid rgba(10,132,255,.28);background:rgba(10,132,255,.08);border-radius:14px;margin:10px 0}.v37-notify b{display:block}.v37-notify span{font-size:12px;color:var(--ios-secondary,#8e8e93)}.v37-notify button{flex:0 0 auto}.v37-status-ok{color:#30d158!important}.v37-status-warn{color:#ff9f0a!important}.v37-reminder-row{display:flex;align-items:flex-start;gap:10px}.v37-reminder-row .v37-reminder-text{flex:1;min-width:0}.v37-reminder-row .v37-reminder-actions{display:flex;gap:6px;flex:0 0 auto}.v37-reminder-row button{min-width:40px!important}.v37-due{border-color:rgba(255,159,10,.55)!important;background:rgba(255,159,10,.08)!important}
+</style>
+
+<style id="v43-calendar-actions">
+.v43-date-modal{padding:2px}
+.v43-date-big{font-size:28px;font-weight:800;letter-spacing:-.035em;margin-bottom:4px}
+.v43-date-sub{color:var(--ios-sub,#6d6d75);margin-bottom:18px}
+.v43-date-action{display:flex;align-items:center;gap:12px;width:100%;padding:14px 12px!important;margin:8px 0;border-radius:16px!important;text-align:left}
+.v43-date-action .ico{font-size:24px;width:36px;text-align:center}
+.v43-date-action b{display:block}.v43-date-action small{color:var(--ios-sub,#6d6d75)}
+</style>
+</head>
+<body><div class="v20-bottom-nav" id="v20BottomNav">
+<button onclick="showWeddings()" data-nav="weddings"><span class="v20-icon">💍</span><span>Свадьбы</span></button>
+<button onclick="showCalendar()" data-nav="calendar"><span class="v20-icon">📅</span><span>Календарь</span></button>
+<button onclick="openCurrentOrNext()" data-nav="current"><span class="v20-icon">🎯</span><span>Текущая</span></button>
+<button onclick="showClientBase()" data-nav="clients"><span class="v20-icon">👥</span><span>Клиенты</span></button>
+<button onclick="showMoreMenu()" data-nav="more"><span class="v20-icon">•••</span><span>Ещё</span></button>
+</div>
+<div class="app">
+<header><div class="v35-head-left"><button id="v35Back" class="v35-back" onclick="window.__v33SwipeBack&&window.__v33SwipeBack.goBack()" aria-label="Назад">‹</button><div><div class="muted">WEDDING PHOTOGRAPHER</div><h1 id="headerTitle">Мои свадьбы</h1></div></div><button class="primary v35-add" onclick="newWedding()">＋</button></header>
+<main class="content" id="app"></main>
+</div>
+<div class="modal" id="modal"><div class="sheet"><div class="sheethead"><div id="modalTitle" class="modal-title">Редактирование</div><button onclick="closeModal()">×</button></div><div id="modalBody"></div></div></div>
+
+<script>
+const KEY='wedding-photographer-v2';
+const LEGACY_KEYS=["wedding-photographer-v1","wedding-photographer-v0"];
+function loadDatabase(){
+  let raw=localStorage.getItem(KEY), source=KEY;
+  if(!raw){ for(const k of LEGACY_KEYS){ const candidate=localStorage.getItem(k); if(candidate){raw=candidate;source=k;break;} } }
+  if(raw){ try{ const parsed=JSON.parse(raw); if(parsed && Array.isArray(parsed.weddings)) return {db:parsed,migrated:source!==KEY,source}; }catch(e){} }
+  return {db:null,migrated:false,source:null};
+}
+const LOADED=loadDatabase();
+const checklistTemplate={
+ shooting:['Кадры деталей (кольца, платье, букет)','Сборы невесты','Сборы жениха','Портреты пары','Родители и близкие','Выход из дома / встреча','ЗАГС: вход','ЗАГС: церемония','ЗАГС: выход','Прогулка пары','Детали площадки','Гости и атмосфера','Первый танец','Тосты и реакции гостей','Торт','Финал вечера'],
+ interviews:['Портрет жениха','Портрет невесты','Портрет родителей','Групповые фото с близкими','Общее фото пары'],
+ montage:['Отобрать лучший материал','Отсортировать серии','Базовая цветокоррекция','Ретушь ключевых кадров','Обработка серий','Финальный просмотр','Экспорт фотографий','Экспорт превью','Передача клиенту','Резервная копия проекта']
+};
+let db=LOADED.db;
+if(!db){
+ db={selected:1,nextId:2,weddings:[makeWedding(1,'2026-09-26','Ставрополь','Алексей & Мария')],settings:{camera:'Canon EOS R6 Mark II',lenses:'RF 24-70mm F2.8 L IS USM; RF 70-200mm F2.8 L IS USM',gimbal:'DJI RS5 Combo',audio:'Hollyland / DJI Mic'}};
+ save();
+}
+if(!Array.isArray(db.leads)) db.leads=[];
+
+function makeWedding(id,date='2026-09-26',city='',names=''){
+ const checks={};Object.keys(checklistTemplate).forEach(k=>checks[k]=checklistTemplate[k].map(x=>({text:x,done:false})));
+ return {id,date,city,names,bookingStatus:'confirmed',price:'60000',deposit:'0',depositDate:'',contract:false,start:'12:00',end:'23:00',
+  guests:'',hall:'',walkPlace:'',bridePrep:'',registry:'',
+  paymentStatus:'partial',balanceDate:'',payments:[],
+  route:{prepStart:'',prepEnd:'',registryStart:'',registryEnd:'',walkStart:'',walkEnd:'',banquetStart:'',banquetEnd:'',outdoorStart:'',outdoorEnd:''},ceremonyType:'zags',hasZags:true,hasOutdoor:false,outdoorCeremony:false,outdoorPlace:'',
+  contacts:{customer:'',phone:'',telegram:'',groom:'',bride:'',groomPhone:'',bridePhone:'',notes:''},
+  clientProfile:{source:'',anniversary:'',preferences:'',importantPeople:'',mustFilm:'',avoidFilm:'',music:'',notes:''},
+  team:{host:'',photographer:'',decorator:'',organizer:'',specialEffects:'',makeup:'',other:''},
+  equipment:{camera:'',lenses:'',flash:'',light:'',secondCamera:'',drone:false,secondPhotographer:false,notes:''},
+  shotPlan:{details:false,prep:false,zags:false,walk:false,guests:false,banquet:false,dance:false,toasts:false,cake:false,finale:false},
+  light:{groom:false,bride:false,host:false,recorder:false,mixer:false,backup:false,levels:false},
+  post:{cards:false,backup1:false,backup2:false,sorted:false,proxies:false,rough:false,color:false,sound:false,export:false,delivered:false},
+  deliverables:{preview:true,web:false,print:false,album:false,raw:false,delivered:false},
+  reminders:[],
+  events:[{id:1,time:'12:00',title:'Сборы невесты',place:'',note:'Детали · портреты'},
+   {id:2,time:'14:00',title:'ЗАГС',place:'',note:'Вход · церемония · выход'},
+   {id:3,time:'15:00',title:'Прогулка',place:'',note:'Пара · детали · гости'},
+   {id:4,time:'17:00',title:'Ресторан',place:'',note:'Первый танец · тосты · эмоции'}],checks};
+}
+function save(){localStorage.setItem(KEY,JSON.stringify(db))}
+function normalizeWedding(w){
+ w.bookingStatus ??= (w.contract ? 'contract' : 'confirmed');
+ if(!['confirmed','hold','contract'].includes(w.bookingStatus)) w.bookingStatus='confirmed';
+ w.guests ??= ''; w.hall ??= ''; w.walkPlace ??= ''; w.bridePrep ??= ''; w.registry ??= '';
+ w.paymentStatus ??= Number(w.deposit||0)>=Number(w.price||0)?'paid':Number(w.deposit||0)>0?'partial':'unpaid';
+ w.balanceDate ??= ''; w.payments ??= [];
+ w.route ??= {prepStart:'',prepEnd:'',registryStart:'',registryEnd:'',walkStart:'',walkEnd:'',banquetStart:'',banquetEnd:'',outdoorStart:'',outdoorEnd:''};
+ w.route.prepStart ??= w.route.prepTime||''; w.route.prepEnd ??= '';
+ w.route.registryStart ??= w.route.registryTime||''; w.route.registryEnd ??= '';
+ w.route.walkStart ??= w.route.walkTime||''; w.route.walkEnd ??= '';
+ w.route.banquetStart ??= w.route.banquetTime||''; w.route.banquetEnd ??= '';
+ w.route.outdoorStart ??= ''; w.route.outdoorEnd ??= '';
+ w.outdoorCeremony ??= false; w.outdoorPlace ??= '';
+ w.ceremonyType ??= (w.outdoorCeremony ? 'outdoor' : (w.registry || w.route.registryStart || w.route.registryEnd ? 'zags' : 'none'));
+ if(typeof w.hasZags !== 'boolean') w.hasZags = w.ceremonyType==='zags' || !!(w.registry || w.route.registryStart || w.route.registryEnd);
+ if(typeof w.hasOutdoor !== 'boolean') w.hasOutdoor = w.ceremonyType==='outdoor' || !!w.outdoorCeremony;
+ w.ceremonyType = w.hasZags && w.hasOutdoor ? 'both' : w.hasZags ? 'zags' : w.hasOutdoor ? 'outdoor' : 'none';
+ w.outdoorCeremony = w.hasOutdoor;
+ w.shotPlan ??= {details:false,prep:false,zags:false,walk:false,guests:false,banquet:false,dance:false,toasts:false,cake:false,finale:false};
+ w.light ??= w.sound ?? {groom:false,bride:false,host:false,recorder:false,mixer:false,backup:false,levels:false}; delete w.sound;
+ w.post ??= {cards:false,backup1:false,backup2:false,sorted:false,proxies:false,rough:false,color:false,sound:false,export:false,delivered:false};
+ w.deliverables ??= {preview:true,web:false,print:false,album:false,raw:false,delivered:false};
+ w.contractDate ??= ''; w.contractNumber ??= ''; w.contractNote ??= '';
+ w.reminders ??= [];
+ w.contacts ??= {customer:'',phone:'',telegram:'',groom:'',bride:'',groomPhone:'',bridePhone:'',notes:''};
+ w.contacts.groom ??= ''; w.contacts.bride ??= ''; w.contacts.groomPhone ??= ''; w.contacts.bridePhone ??= ''; w.contacts.notes ??= '';
+ w.clientProfile ??= {source:'',anniversary:'',preferences:'',importantPeople:'',mustFilm:'',avoidFilm:'',music:'',notes:''};
+ w.team ??= {host:'',photographer:'',decorator:'',organizer:'',specialEffects:'',makeup:'',other:''};
+ w.equipment ??= {camera:'',lenses:'',flash:'',light:'',secondCamera:'',drone:false,secondPhotographer:false,notes:''};
+ w.events ??= []; w.checks ??= {};
+ Object.keys(checklistTemplate).forEach(k=>w.checks[k] ??= checklistTemplate[k].map(x=>({text:x,done:false})));
+ return w;
+}
+db.weddings.forEach(normalizeWedding);
+
+function ensureOperational(w){
+ w.weather ??= {condition:'',temp:'',note:''};
+ w.journal ??= '';
+ w.travel ??= {defaultMinutes:'',notes:''};
+ w.wishes ??= {must:'',avoid:'',importantPeople:'',special:'',notes:''};
+ w.guestGroups ??= '';
+ w.events ??= [];
+ syncRouteToEvents(w);
+ return w;
+}
+function opCurrent(){return ensureOperational(current())}
+function timeMinutes(t){if(!t)return null;const a=t.split(':').map(Number);return a[0]*60+a[1]}
+function gapMinutes(a,b){const x=timeMinutes(a),y=timeMinutes(b);if(x==null||y==null)return null;let d=y-x;if(d<0)d+=1440;return d}
+function nextEvent(w){const now=new Date();const today=w.date===now.toISOString().slice(0,10);const cur=now.getHours()*60+now.getMinutes();const list=[...w.events].sort((a,b)=>(a.time||'').localeCompare(b.time||''));return today?list.find(e=>timeMinutes(e.time)>=cur):list[0]}
+function routeEvents(w){
+ const r=w.route||{}, defs=[
+ ['route-prep',r.prepStart,r.prepEnd,'Сборы невесты',w.bridePrep||'','Детали · портреты'],
+ ...(w.hasZags ? [['route-registry',r.registryStart,r.registryEnd,'ЗАГС',w.registry||'','Вход · церемония · выход']] : []),
+ ['route-walk',r.walkStart,r.walkEnd,'Прогулка',w.walkPlace||'','Пара · детали · гости'],
+ ...(w.hasOutdoor ? [['route-outdoor',r.outdoorStart,r.outdoorEnd,'Выездная регистрация',w.outdoorPlace||'','Церемония']] : []),
+ ['route-banquet',r.banquetStart,r.banquetEnd,'Банкет',w.hall||'','Первый танец · тосты · эмоции']
+ ];
+ return defs.filter(x=>x[1]).map(x=>({id:x[0],time:x[1],title:x[3],place:x[4],note:x[5],endTime:x[2],source:'route'}));
+}
+function syncRouteToEvents(w){
+ const custom=(w.events||[]).filter(e=>e.source!=='route'&&!String(e.id).startsWith('route-'));
+ w.events=[...routeEvents(w),...custom].sort((a,b)=>(a.time||'').localeCompare(b.time||''));
+}
+function syncEventsToRoute(w){
+ const r=w.route||{}, by=Object.fromEntries((w.events||[]).map(e=>[String(e.id),e]));
+ const map={'route-prep':['prepStart','prepEnd'],'route-registry':['registryStart','registryEnd'],'route-walk':['walkStart','walkEnd'],'route-outdoor':['outdoorStart','outdoorEnd'],'route-banquet':['banquetStart','banquetEnd']};
+ Object.entries(map).forEach(([id,k])=>{if(by[id]){r[k[0]]=by[id].time||'';r[k[1]]=by[id].endTime||'';}});
+ w.route=r;
+}
+function migrateDatabase(){
+ db.weddings=(db.weddings||[]).map(w=>{
+  normalizeWedding(w);ensureOperational(w);
+  const legacyMap=[[/сбор/i,'route-prep','prepStart','prepEnd'],[/загс/i,'route-registry','registryStart','registryEnd'],[/прогул/i,'route-walk','walkStart','walkEnd'],[/выезд/i,'route-outdoor','outdoorStart','outdoorEnd'],[/ресторан|банкет/i,'route-banquet','banquetStart','banquetEnd']];
+  for(const e of (w.events||[])){
+   if(e.source==='route')continue;
+   const hit=legacyMap.find(x=>x[0].test(e.title||''));
+   if(hit && !w.route[hit[2]] && e.time){w.route[hit[2]]=e.time;w.route[hit[3]]=e.endTime||'';}
+  }
+  syncRouteToEvents(w);return w;
+ });
+ save();
+}
+migrateDatabase();
+setTimeout(scheduleAllReminderNotifications,300);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)scheduleAllReminderNotifications()});
+window.addEventListener('focus',()=>scheduleAllReminderNotifications());
+if(LOADED.migrated){setTimeout(()=>alert('База предыдущей версии автоматически перенесена.'),300);}
+
+function calendarStatus(w){
+ const st=w.bookingStatus||'confirmed';
+ if(w.archived)return 'archive';
+ return st;
+}
+function bookingStatusLabel(st){return st==='hold'?'Предварительная бронь':st==='contract'?'Договор подписан':st==='archive'?'Архив':'Забронировано'}
+function bookingStatusClass(st){return st==='hold'?'hold':st==='contract'?'contract':'booked'}
+function monthTitle(y,m){return new Intl.DateTimeFormat('ru-RU',{month:'long',year:'numeric'}).format(new Date(y,m,1)).replace(/^./,c=>c.toUpperCase())}
+function showCalendar(monthOffset=window.calendarMonthOffset||0){
+ window.calendarMonthOffset=monthOffset;
+ headerTitle.textContent='Забронированные даты';
+ const base=new Date();base.setDate(1);base.setMonth(base.getMonth()+monthOffset);
+ const y=base.getFullYear(),m=base.getMonth(),first=new Date(y,m,1),days=new Date(y,m+1,0).getDate();
+ const mondayIndex=(first.getDay()+6)%7;
+ const booked=new Map();(db.weddings||[]).forEach(w=>{if(w.date&&!w.archived)booked.set(w.date,w)});
+ const today=new Date();const todayKey=today.toISOString().slice(0,10);
+ let cells='';
+ for(let i=0;i<mondayIndex;i++)cells+='<div class="cal-day empty"></div>';
+ for(let d=1;d<=days;d++){
+   const key=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`,w=booked.get(key),st=w?calendarStatus(w):'';
+   cells+=`<div class="cal-day ${w?bookingStatusClass(st):''} ${key===todayKey?'today':''}" onclick="v43CalendarDate(\'${key}\')"><div class="num">${d}</div>${w?`<div class="dot">${st==='hold'?'🟡':st==='contract'?'🔵':'🔴'} ${esc(w.names||'Забронировано')}</div><div class="muted" style="font-size:10px">${esc(w.city||'')}</div>`:''}</div>`;
+ }
+ const list=[...(db.weddings||[])].filter(w=>!w.archived&&w.date&&w.date.slice(0,7)===`${y}-${String(m+1).padStart(2,'0')}`).sort((a,b)=>a.date.localeCompare(b.date));
+ const eventList=[...(db.events||[])].filter(e=>e.date&&e.date.slice(0,7)===`${y}-${String(m+1).padStart(2,'0')}`).sort((a,b)=>a.date.localeCompare(b.date));
+ app.innerHTML=`<h2>📅 Забронированные даты</h2>
+ <div class="card calendar-card"><div class="calendar-head"><button class="secondary smallbtn" onclick="showCalendar(${monthOffset-1})">‹</button><b>${monthTitle(y,m)}</b><button class="secondary smallbtn" onclick="showCalendar(${monthOffset+1})">›</button></div>
+ <div class="calendar-grid" style="margin-top:10px">${['Пн','Вт','Ср','Чт','Пт','Сб','Вс'].map(x=>`<div class="cal-dow">${x}</div>`).join('')}${cells}</div>
+ <div class="calendar-legend"><span>🔴 Забронировано</span><span>🟡 Предварительная бронь</span><span>🔵 Договор подписан</span></div></div>
+ <h3>${list.length?'Свадьбы в этом месяце':'Свободных/забронированных свадеб в этом месяце нет'}</h3>
+ ${list.map(w=>`<div class="card booking-row" onclick="openWedding(${w.id})"><div class="booking-date">${formatDate(w.date).slice(0,5)}</div><div class="booking-main"><b>${esc(w.names||'Без названия')}</b><span class="muted">${esc(w.city||'')} · ${bookingStatusLabel(calendarStatus(w))} · ${money(w.price)}</span></div><div class="booking-actions"><button class="secondary smallbtn" onclick="event.stopPropagation();editWedding(${w.id})">✎</button></div></div>`).join('')}
+ ${eventList.length?`<h3>События</h3>${eventList.map(e=>`<div class="card booking-row"><div class="booking-date">${formatDate(e.date).slice(0,5)}</div><div class="booking-main"><b>📌 ${esc(e.title)}</b><span class="muted">${esc(e.time||'Весь день')} · ${esc(e.place||'')} · ${esc(e.note||'')}</span></div></div>`).join('')}`:''}
+ <div class="card"><div class="section-title"><b>Сводка</b><span class="badge">${list.length} дат</span></div><div class="muted" style="margin-top:8px">🔴 ${list.filter(w=>(w.bookingStatus||'confirmed')==='confirmed').length} забронировано · 🟡 ${list.filter(w=>w.bookingStatus==='hold').length} предбронь · 🔵 ${list.filter(w=>w.bookingStatus==='contract').length} договор</div></div>
+ <button class="secondary" style="width:100%" onclick="showWeddings()">← Все свадьбы</button>`;
+}
+function showLogistics(){
+ const w=opCurrent(), ev=[...w.events].sort((a,b)=>(a.time||'').localeCompare(b.time||''));
+ const gaps=ev.slice(0,-1).map((e,i)=>{const n=ev[i+1],g=gapMinutes(e.time,n.time);return {a:e,b:n,g}}).filter(x=>x.g!=null);
+ const risky=gaps.filter(x=>x.g<30);
+ app.innerHTML=`<h2>🚗 Логистика и переезды</h2>
+ <div class="card"><div class="section-title"><b>Контроль времени</b><span class="badge ${risky.length?'warn':'ok'}">${risky.length?risky.length+' узких мест':'Критичных интервалов нет'}</span></div><label>Средний запас на переезд, мин</label><input type="number" min="0" value="${esc(w.travel.defaultMinutes)}" onchange="opCurrent().travel.defaultMinutes=this.value;save();showLogistics()"><label>Общие заметки</label><textarea onchange="opCurrent().travel.notes=this.value;save()">${esc(w.travel.notes)}</textarea></div>
+ ${gaps.length?`<h3>Интервалы между событиями</h3>${gaps.map(x=>`<div class="card"><b>${esc(x.a.time)} ${esc(x.a.title)}</b><div class="muted">→ ${esc(x.b.time)} ${esc(x.b.title)}</div><div style="margin-top:8px"><span class="badge ${x.g<30?'warn':'ok'}">${x.g} мин</span>${x.a.place||x.b.place?`<span class="badge">${esc(x.a.place||'')} → ${esc(x.b.place||'')}</span>`:''}</div>${x.g<30?'<div class="notice">Мало времени на переезд/подготовку. Проверь маршрут и запас.</div>':''}</div>`).join('')}`:'<div class="empty">Добавь события в тайминг — здесь появится контроль переездов.</div>'}
+ <button class="secondary" style="width:100%" onclick="showCurrent()">← Панель дня</button>`;
+}
+function showWishes(){
+ const w=opCurrent();
+ app.innerHTML=`<h2>❤️ Пожелания пары</h2><div class="card">
+ <label>Обязательно снять / показать</label><textarea onchange="opCurrent().wishes.must=this.value;save()">${esc(w.wishes.must||w.clientProfile?.mustFilm||'')}</textarea>
+ <label>Не снимать / избегать</label><textarea onchange="opCurrent().wishes.avoid=this.value;save()">${esc(w.wishes.avoid||w.clientProfile?.avoidFilm||'')}</textarea>
+ <label>Важные люди</label><textarea onchange="opCurrent().wishes.importantPeople=this.value;save()">${esc(w.wishes.importantPeople||w.clientProfile?.importantPeople||'')}</textarea>
+ <label>Особые пожелания</label><textarea onchange="opCurrent().wishes.special=this.value;save()"></textarea>
+ <label>Музыка / настроение</label><textarea onchange="opCurrent().wishes.notes=this.value;save()">${esc(w.wishes.notes||w.clientProfile?.music||'')}</textarea>
+ </div><button class="primary" style="width:100%" onclick="showCurrent()">Сохранить и вернуться</button>`;
+}
+function showGuests(){
+ const w=opCurrent();
+ app.innerHTML=`<h2>👥 Гости и важные люди</h2><div class="card"><label>Количество гостей</label><input type="number" min="0" value="${esc(w.guests)}" onchange="opCurrent().guests=this.value;save()"><label>Кого обязательно снять вместе</label><textarea placeholder="Родители, бабушки, друзья..." onchange="opCurrent().guestGroups=this.value;save()">${esc(w.guestGroups)}</textarea><label>Важные люди</label><textarea onchange="opCurrent().wishes.importantPeople=this.value;save()">${esc(w.wishes.importantPeople)}</textarea></div><button class="secondary" style="width:100%" onclick="showCurrent()">← Панель дня</button>`;
+}
+function showFinance(){
+ const w=opCurrent(),price=Number(w.price||0),dep=Number(w.deposit||0),left=Math.max(price-dep,0);
+ app.innerHTML=`<h2>💰 Финансы</h2><div class="grid"><div class="card stat"><b>${money(price)}</b><span class="muted">стоимость</span></div><div class="card stat"><b>${money(dep)}</b><span class="muted">внесено</span></div><div class="card stat"><b>${money(left)}</b><span class="muted">осталось</span></div></div><div class="card"><div class="section-title"><b>${w.contract?'🟢 Договор подписан':'🔴 Договор не отмечен'}</b><button class="secondary smallbtn" onclick="showContract()">Открыть</button></div><label>Дата предоплаты</label><input type="date" value="${esc(w.depositDate)}" onchange="opCurrent().depositDate=this.value;save()"><label>Срок остатка</label><input type="date" value="${esc(w.balanceDate)}" onchange="opCurrent().balanceDate=this.value;save()"><label>Статус оплаты</label><select onchange="opCurrent().paymentStatus=this.value;save();showFinance()"><option value="unpaid" ${w.paymentStatus==='unpaid'?'selected':''}>Предоплата не внесена</option><option value="partial" ${w.paymentStatus==='partial'?'selected':''}>Частично оплачено</option><option value="paid" ${w.paymentStatus==='paid'?'selected':''}>Оплачено полностью</option></select></div><button class="primary" style="width:100%" onclick="showMoney()">Открыть журнал платежей</button>`;
+}
+function showBackupControl(){
+ const w=opCurrent(),o=w.post||{};
+ const items=[['cards','Карты скопированы'],['backup1','Резервная копия №1'],['backup2','Резервная копия №2']];
+ app.innerHTML=`<h2>💾 Резервные копии</h2><div class="card hero"><div class="section-title"><b>Безопасность материала</b><span class="badge ${o.backup1&&o.backup2?'ok':'warn'}">${o.backup1&&o.backup2?'2 копии готовы':'Не все копии готовы'}</span></div>${items.map(([k,l])=>`<div class="check"><input type="checkbox" ${o[k]?'checked':''} onchange="opCurrent().post['${k}']=this.checked;save();showBackupControl()"><label>${l}</label></div>`).join('')}</div><div class="notice">Форматировать карты можно только после проверки независимых копий.</div><button class="secondary" style="width:100%" onclick="showCurrent()">← Панель дня</button>`;
+}
+function showShotList(){
+ const w=opCurrent(), role=KEY.includes('photographer')?'Фотограф':'Видеограф';
+ const labels=role==='Фотограф'?{details:'Детали: кольца, платье, букет',prep:'Сборы',zags:'ЗАГС',walk:'Прогулка пары',guests:'Гости и групповые фото',banquet:'Детали банкета',dance:'Первый танец',toasts:'Тосты и реакции',cake:'Торт',finale:'Финал вечера'}:{details:'Детали: кольца, платье, букет',prep:'Сборы',zags:'ЗАГС',walk:'Прогулка пары',guests:'Гости и атмосфера',banquet:'Детали площадки',dance:'Первый танец',toasts:'Тосты и реакции',cake:'Торт',finale:'Финал вечера'};
+ app.innerHTML=`<h2>🎯 Shot List — ${role}</h2><div class="card">${Object.entries(labels).map(([k,l])=>`<div class="check"><input type="checkbox" ${w.shotPlan?.[k]?'checked':''} onchange="opCurrent().shotPlan['${k}']=this.checked;save();showShotList()"><label>${l}</label></div>`).join('')}</div><div class="card"><label>Свои обязательные кадры</label><textarea placeholder="Например: фото с бабушкой, отдельный кадр колец на приглашении" onchange="opCurrent().wishes.special=this.value;save()">${esc(w.wishes.special)}</textarea></div><button class="secondary" style="width:100%" onclick="showCurrent()">← Панель дня</button>`;
+}
+function showJournal(){
+ const w=opCurrent();
+ app.innerHTML=`<h2>📝 Журнал свадьбы</h2><div class="card"><label>Что произошло / что нужно сделать / что обещал клиенту</label><textarea style="min-height:240px" placeholder="Запиши сразу после свадьбы..." onchange="opCurrent().journal=this.value;save()">${esc(w.journal)}</textarea></div><button class="primary" style="width:100%" onclick="showCurrent()">Сохранить</button>`;
+}
+function showWeather(){
+ const w=opCurrent();
+ app.innerHTML=`<h2>🌦 Погода</h2><div class="card"><label>Условия</label><input value="${esc(w.weather.condition)}" placeholder="Солнечно / дождь / облачно" onchange="opCurrent().weather.condition=this.value;save()"><div class="formgrid"><div><label>Температура</label><input value="${esc(w.weather.temp)}" placeholder="24 °C" onchange="opCurrent().weather.temp=this.value;save()"></div><div><label>Важный фактор</label><input value="${esc(w.weather.note)}" placeholder="ветер / дождь" onchange="opCurrent().weather.note=this.value;save()"></div></div><div class="notice">Погоду можно занести перед свадьбой и использовать как напоминание для плана Б.</div></div><button class="secondary" style="width:100%" onclick="showCurrent()">← Панель дня</button>`;
+}
+function showEquipmentChecklist(){
+ showEquipment();
+}
+
+
+function current(){return ensureOperational(normalizeWedding(db.weddings.find(w=>w.id===db.selected)||db.weddings[0]))}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function money(v){return new Intl.NumberFormat('ru-RU').format(Number(v||0))+' ₽'}
+function openModal(title,body){modalTitle.textContent=title;modalBody.innerHTML=body;modal.classList.add('show');document.body.classList.add('modal-open');setTimeout(()=>{const first=modalBody.querySelector('input,select,textarea');if(first) first.scrollIntoView({block:'nearest'});},30)}
+function closeModal(){modal.classList.remove('show');document.body.classList.remove('modal-open')}
+function formatDate(s){if(!s)return 'Дата не указана';let a=s.split('-');return `${a[2]}.${a[1]}.${a[0]}`}
+function openWedding(id){db.selected=id;save();showCurrent();}
+function selectWedding(id){db.selected=id;save();showCurrent()}
+function weddingStatus(w){
+ const today=new Date(); today.setHours(0,0,0,0);
+ const d=new Date((w.date||'').replace(/-/g,'/')); d.setHours(0,0,0,0);
+ if(w.archived)return 'archive';
+ if(!isNaN(d.getTime()) && d<today)return 'past';
+ return 'planned';
+}
+function statusLabel(st){return st==='planned'?'Запланированные':st==='past'?'Прошедшие':'Архив'}
+function weddingCard(w){
+ const st=weddingStatus(w);
+ return `<div class="card wedding-item" onclick="openWedding(${w.id})">
+  <div class="wedding-info"><div class="muted">${formatDate(w.date)} · ${esc(w.city)}</div><b>${esc(w.names)||'Без названия'}</b>
+  <span class="badge">${money(w.price)}</span><span class="badge">👥 ${esc(w.guests||'—')}</span>
+  <span class="badge ${w.contract?'ok':''}">${w.contract?'Договор ✓':'Договор не отмечен'}</span>
+  <span class="badge ${Number(w.deposit)>0?'ok':''}">Предоплата: ${money(w.deposit)}</span></div>
+  <div class="wedding-actions"><button class="secondary smallbtn" onclick="event.stopPropagation();editWedding(${w.id})">✎</button><button class="secondary danger smallbtn" onclick="event.stopPropagation();deleteWedding(${w.id})">×</button></div>
+ </div>`;
+}
+function renderWeddingsResults(q=''){const box=document.getElementById('weddingsResults');if(!box)return;q=String(q||'').trim().toLowerCase();const matches=w=>{const c=w.contacts||{};const hay=[w.names,w.city,w.date,c.customer,c.phone,c.telegram,c.groom,c.bride,c.groomPhone,c.bridePhone].filter(Boolean).join(' ').toLowerCase();return !q||hay.includes(q)};const planned=db.weddings.filter(w=>weddingStatus(w)==='planned'&&matches(w)).sort((a,b)=>String(a.date).localeCompare(String(b.date)));const past=db.weddings.filter(w=>weddingStatus(w)==='past'&&matches(w)).sort((a,b)=>String(b.date).localeCompare(String(a.date)));const archive=db.weddings.filter(w=>weddingStatus(w)==='archive'&&matches(w));box.innerHTML=(planned.length?planned.map(weddingCard).join(''):'<div class="empty">Нет совпадений в запланированных свадьбах</div>')+(past.length?`<div class="v21-section">Прошедшие</div>${past.map(weddingCard).join('')}`:'')+(archive.length?`<div class="v21-section">Архив</div>${archive.map(weddingCard).join('')}`:'')}
+function filterWeddings(input){window.weddingsSearchQ=input.value;renderWeddingsResults(input.value)}
+function showWeddings(){
+ v20SetActive('weddings');
+ headerTitle.textContent='Мои свадьбы';
+ const planned=db.weddings.filter(w=>weddingStatus(w)==='planned').sort((a,b)=>String(a.date).localeCompare(String(b.date)));
+ const past=db.weddings.filter(w=>weddingStatus(w)==='past').sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+ const archive=db.weddings.filter(w=>weddingStatus(w)==='archive');
+ const next=planned[0];
+ app.innerHTML=`
+ <div class="v35-search"><span>⌕</span><input id="weddingsSearch" value="${esc(window.weddingsSearchQ||'')}" placeholder="Свадьба, клиент, город или телефон" oninput="filterWeddings(this)"></div>
+ <div class="v35-quick"><button onclick="showCalendar()"><b>📅 Календарь</b><span>Занятые даты</span></button><button onclick="showClientBase()"><b>👥 Клиенты</b><span>Контакты</span></button><button onclick="showReminders()"><b>🔔 Напоминания</b><span>Ближайшие задачи</span></button><button onclick="newWedding()"><b>＋ Новая свадьба</b><span>Добавить запись</span></button></div>
+ <div class="v21-home-stats">
+  <div class="v21-home-stat" onclick="showWeddingGroup('planned')"><b>${planned.length}</b><span>Запланировано</span></div>
+  <div class="v21-home-stat" onclick="showWeddingGroup('past')"><b>${past.length}</b><span>Прошло</span></div>
+  <div class="v21-home-stat" onclick="showWeddingGroup('archive')"><b>${archive.length}</b><span>Архив</span></div>
+ </div>
+ <div class="card hero">
+  <div class="section-title"><div><div class="muted">БЛИЖАЙШАЯ СВАДЬБА</div><div class="names">${next?esc(next.names||'Без названия'):'Нет запланированных свадеб'}</div></div>${next?'<span class="badge">'+formatDate(next.date)+'</span>':'<button class="primary" onclick="newWedding()">＋</button>'}</div>
+  ${next?`<div class="muted" style="margin-top:6px">${esc(next.city||'')} · ${esc(next.start||'')}–${esc(next.end||'')}</div>
+   <div class="v21-actions" style="margin-top:12px"><button class="primary" onclick="openWedding(${next.id})">Открыть свадьбу</button><button class="secondary" onclick="editWedding(${next.id});event.stopPropagation()">Изменить</button></div>`:'<div class="muted" style="margin-top:8px">Добавь первую свадьбу и заполни тайминг, локации и команду.</div>'}
+ </div>
+ <div class="v21-section">Свадьбы</div>
+ 
+ <div id="weddingsResults"></div>
+ `;
+ renderWeddingsResults(window.weddingsSearchQ||'');
+}
+function showWeddingGroup(group){
+ headerTitle.textContent=statusLabel(group);
+ const list=db.weddings.filter(w=>weddingStatus(w)===group);
+ app.innerHTML=`<h2>${statusLabel(group)}</h2><button class="secondary" onclick="showWeddings()">← Все свадьбы</button>
+ ${list.length?list.map(weddingCard).join(''):'<div class="empty">Здесь пока пусто</div>'}`;
+}
+function archiveWedding(id){
+ const w=db.weddings.find(x=>x.id===id); if(!w)return;
+ w.archived=!w.archived; save(); showWeddings();
+}
+
+function showIdeas(){
+ headerTitle.textContent='Идеи';
+ app.innerHTML=`<h2>Идеи для приложения</h2>
+ <div class="card idea-link" onclick="showWeddings()"><b>📊 Главный экран</b><p class="muted">Запланированные, прошедшие и архивные свадьбы, быстрый доступ к текущей свадьбе.</p><span class="idea-action">Открыть →</span></div>
+ <div class="card idea-link" onclick="showReminders()"><b>🔔 Напоминания</b><p class="muted">Подготовка техники, остаток оплаты, проверка тайминга и резервных копий.</p><span class="idea-action">Открыть →</span></div>
+ <div class="card idea-link" onclick="showClientBase()"><b>📇 Клиентская база</b><p class="muted">История свадеб, контакты и поиск по фамилии, городу или дате.</p><span class="idea-action">Открыть →</span></div>
+ <div class="card idea-link" onclick="openLocationsFromIdeas()"><b>🗺 Локации</b><p class="muted">Все адреса свадьбы с быстрым переходом к маршруту.</p><span class="idea-action">Открыть →</span></div>
+ <div class="card idea-link" onclick="openDeliveryFromIdeas()"><b>📦 Выдача материала</b><p class="muted">Статус готовности и передачи материала клиенту.</p><span class="idea-action">Открыть →</span></div>
+ <div class="card idea-link" onclick="showCalendar(0)"><b>📅 Забронированные даты</b><p class="muted">Календарь занятых дат, предброней и свадеб с договором.</p><span class="idea-action">Открыть →</span></div>
+ <div class="card idea-link" onclick="showStats()"><b>📈 Статистика</b><p class="muted">Количество свадеб, выручка, средний чек и загруженность по месяцам.</p><span class="idea-action">Открыть →</span></div>`;
+}
+function openLocationsFromIdeas(){
+ if(current()){showLocations()}else{showWeddings()}
+}
+function openDeliveryFromIdeas(){
+ if(current()){showPost()}else{showWeddings()}
+}
+function clientBaseCard(w){
+ const c=w.contacts||{};
+ const contactMain=(c.customer||c.phone||c.telegram)?`<div class="v31-client-main">${c.customer?`<span class="v31-contact-name">👤 ${esc(c.customer)}</span>`:''}${c.phone?`<span class="v31-contact-phone">📞 ${esc(c.phone)}</span>`:''}${c.telegram?`<span class="v31-contact-tg">✈️ ${esc(c.telegram)}</span>`:''}</div><div class="v24-contact-phone v32-client-actions">${c.phone?v24Actions(c.phone):''}${c.telegram?v24TelegramAction(c.telegram):''}</div>`:'';
+ const groom=c.groom?`<div><b>Жених:</b> ${esc(c.groom)}${c.groomPhone?`<div class="v24-contact-phone"><span class="v24-phone-number">📞 ${esc(c.groomPhone)}</span>${v24Actions(c.groomPhone)}</div>`:''}</div>`:'';
+ const bride=c.bride?`<div style="margin-top:9px"><b>Невеста:</b> ${esc(c.bride)}${c.bridePhone?`<div class="v24-contact-phone"><span class="v24-phone-number">📞 ${esc(c.bridePhone)}</span>${v24Actions(c.bridePhone)}</div>`:''}</div>`:'';
+ const fallback=(!c.groomPhone&&!c.bridePhone&&c.phone)?`<div class="v24-contact-phone"><span class="v24-phone-number">📞 ${esc(c.phone)}</span>${v24Actions(c.phone)}</div>`:'';
+ return `<div class="card client-result" data-search="${esc([w.names,w.city,c.customer,c.groom,c.bride,c.phone,c.groomPhone,c.bridePhone,c.telegram,w.date].filter(Boolean).join(' ').toLowerCase())}" onclick="openWedding(${w.id})"><div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start"><div><b>${esc(w.names||'Без названия')}</b><p class="muted">${esc(w.city||'')} · ${formatDate(w.date)}</p></div><span class="badge">Открыть →</span></div><div class="v24-contact-card">${contactMain}${groom}${bride}${fallback}</div></div>`;
+}
+function renderClientBaseResults(q=''){
+ const box=document.getElementById('clientBaseResults');
+ if(!box)return;
+ q=String(q||'').trim().toLowerCase();
+ const list=(db.weddings||[]).filter(w=>{
+   const c=w.contacts||{};
+   const hay=[w.names,w.city,c.customer,c.groom,c.bride,c.phone,c.groomPhone,c.bridePhone,c.telegram,w.date].filter(Boolean).join(' ').toLowerCase();
+   return !q || hay.includes(q);
+ });
+ box.innerHTML=list.length?list.map(clientBaseCard).join(''):'<div class="empty">Ничего не найдено</div>';
+}
+function filterClientBase(input){
+ window.clientSearchQ=input.value;
+ renderClientBaseResults(input.value);
+}
+function showClientBase(){
+ v20SetActive('clients');
+ headerTitle.textContent='Клиентская база';
+ app.innerHTML=`<h2>📇 Клиентская база</h2>
+ <div class="card"><input id="clientBaseSearch" value="${esc(window.clientSearchQ||'')}" placeholder="Фамилия, город или дата" oninput="filterClientBase(this)"></div>
+ <div id="clientBaseResults"></div>
+ <button class="secondary" style="width:100%" onclick="showIdeas()">← Назад к идеям</button>`;
+ renderClientBaseResults(window.clientSearchQ||'');
+}
+function showStats(){
+ const list=db.weddings||[];
+ const total=list.length;
+ const revenue=list.reduce((a,w)=>a+Number(w.price||0),0);
+ const avg=total?revenue/total:0;
+ const planned=list.filter(w=>w.date && new Date(w.date)>=new Date()).length;
+ const archived=list.filter(w=>w.archived).length;
+ headerTitle.textContent='Статистика';
+ app.innerHTML=`<h2>📈 Статистика</h2>
+ <div class="grid">
+  <div class="card stat"><b>${total}</b><span class="muted">всего свадеб</span></div>
+  <div class="card stat"><b>${planned}</b><span class="muted">запланировано</span></div>
+  <div class="card stat"><b>${money(revenue)}</b><span class="muted">стоимость заказов</span></div>
+  <div class="card stat"><b>${money(avg)}</b><span class="muted">средний чек</span></div>
+  <div class="card stat"><b>${archived}</b><span class="muted">в архиве</span></div>
+ </div>
+ <button class="secondary" style="width:100%;margin-top:10px" onclick="showIdeas()">← Назад к идеям</button>`;
+}
+
+
+function reminderDateTime(r){return r.date+'T'+(r.time||'09:00')}
+function reminderIsPast(r){return new Date(reminderDateTime(r)).getTime()<Date.now()}
+function reminderLabel(r){
+ const icons={payment:'💰',prep:'🎥',sound:'💡',timeline:'📋',backup:'💾',montage:'🎬',delivery:'📦',custom:'🔔'};
+ return (icons[r.type]||'🔔')+' '+r.title;
+}
+function notificationSupported(){return 'Notification' in window}
+function notificationPermissionLabel(){
+ if(!notificationSupported()) return 'Недоступно в этом браузере';
+ if(Notification.permission==='granted') return 'Уведомления включены';
+ if(Notification.permission==='denied') return 'Уведомления запрещены в настройках iPhone';
+ return 'Разрешить уведомления';
+}
+async function enableReminderNotifications(){
+ if(!notificationSupported()){alert('Этот браузер не поддерживает системные уведомления. На iPhone открой приложение с экрана «Домой» (PWA) в Safari.');return;}
+ try{
+  const p=await Notification.requestPermission();
+  if(p==='granted'){localStorage.setItem('wedding-photographer-notifications','1');scheduleAllReminderNotifications();showReminders();}
+  else showReminders();
+ }catch(e){alert('Не удалось запросить разрешение на уведомления. Открой приложение как PWA с экрана «Домой» и попробуй ещё раз.');}
+}
+const reminderTimers=new Map();
+function clearReminderTimers(){for(const t of reminderTimers.values())clearTimeout(t);reminderTimers.clear();}
+function fireReminderNotification(r,w){
+ if(!notificationSupported() || Notification.permission!=='granted' || r.done) return;
+ const key='wedding-photographer-notified-'+r.id;
+ if(localStorage.getItem(key)) return;
+ try{
+  const title=r.title||'Напоминание';
+  const body=[w?.names||'Свадьба',r.note||'',r.time||''].filter(Boolean).join(' · ');
+  const n=new Notification('💍 '+title,{body,tag:'wedding-reminder-'+r.id,renotify:false});
+  n.onclick=()=>{window.focus();try{showReminders()}catch(e){}};
+  localStorage.setItem(key,String(Date.now()));
+ }catch(e){}
+}
+function scheduleReminderNotification(r,w){
+ if(!r || r.done || !r.date) return;
+ const when=new Date(reminderDateTime(r)).getTime(), delay=when-Date.now();
+ if(delay<=0){if(delay>-86400000)fireReminderNotification(r,w);return;}
+ if(delay>2147483647)return;
+ const old=reminderTimers.get(r.id);if(old)clearTimeout(old);
+ reminderTimers.set(r.id,setTimeout(()=>{reminderTimers.delete(r.id);fireReminderNotification(r,w)},delay));
+}
+function scheduleAllReminderNotifications(){
+ clearReminderTimers();
+ if(!notificationSupported() || Notification.permission!=='granted')return;
+ (db.weddings||[]).forEach(w=>(w.reminders||[]).forEach(r=>scheduleReminderNotification(r,w)));
+}
+function reminderNotificationBlock(){
+ const state=notificationPermissionLabel();
+ const cls=Notification&&Notification.permission==='granted'?'v37-status-ok':(Notification&&Notification.permission==='denied'?'v37-status-warn':'');
+ return `<div class="v37-notify"><div><b>🔔 Уведомления iPhone</b><span class="${cls}">${esc(state)}</span></div><button class="secondary smallbtn" onclick="enableReminderNotifications()">${Notification&&Notification.permission==='granted'?'Проверить':'Включить'}</button></div>`;
+}
+function showReminders(){
+ const w=current();
+ const items=[...w.reminders].sort((a,b)=>reminderDateTime(a).localeCompare(reminderDateTime(b)));
+ const active=items.filter(x=>!x.done);
+ app.innerHTML=`<h2>Напоминания</h2>
+ ${reminderNotificationBlock()}
+ <div class="card hero">
+  <div class="section-title"><b>Активные задачи</b><span class="badge">${active.length}</span></div>
+  <div class="muted" style="margin-top:5px">Напоминания привязаны к свадьбе «${esc(w.names||'Без названия')}».</div>
+ </div>
+ ${items.length?items.map((r,i)=>`<div class="card ${!r.done&&reminderIsPast(r)?'v37-due':''}" style="${r.done?'opacity:.55':''}">
+  <div class="v37-reminder-row">
+   <input type="checkbox" ${r.done?'checked':''} onchange="toggleReminder(${i},this.checked)">
+   <div class="v37-reminder-text"><b>${reminderLabel(r)}</b><div class="muted">${formatDate(r.date)} · ${esc(r.time||'09:00')}${reminderIsPast(r)&&!r.done?' · просрочено':''}</div><div class="muted">${esc(r.note||'')}</div></div>
+   <div class="v37-reminder-actions"><button class="secondary smallbtn" onclick="deleteReminder(${i})">×</button></div>
+  </div>
+ </div>`).join(''):'<div class="empty">Напоминаний пока нет</div>'}
+ <button class="primary" style="width:100%" onclick="addReminder()">＋ Добавить напоминание</button>
+ <h3>Быстрые напоминания</h3>
+ <div class="grid">
+  <div class="tile" onclick="quickReminder('prep')"><div class="icon">📷</div><b>Проверить технику</b><span>За день до свадьбы</span></div>
+  <div class="tile" onclick="quickReminder('sound')"><div class="icon">💡</div><b>Проверить свет</b><span>За день до свадьбы</span></div>
+  <div class="tile" onclick="quickReminder('timeline')"><div class="icon">📋</div><b>Проверить тайминг</b><span>За день до свадьбы</span></div>
+  <div class="tile" onclick="quickReminder('backup')"><div class="icon">💾</div><b>Сделать бэкап</b><span>На следующий день</span></div>
+ </div>`;
+ scheduleAllReminderNotifications();
+}
+function addReminder(){
+ const w=current();
+ openModal('Новое напоминание',`<label>Название</label><input id="rTitle" placeholder="Например: получить остаток"><label>Дата</label><input id="rDate" type="date" value="${esc(w.date)}"><label>Время</label><input id="rTime" type="time" value="09:00"><label>Тип</label><select id="rType"><option value="custom">Другое</option><option value="payment">Оплата</option><option value="prep">Техника</option><option value="sound">Свет / вспышки</option><option value="timeline">Тайминг</option><option value="backup">Бэкап</option><option value="montage">Монтаж</option><option value="delivery">Выдача</option></select><label>Заметка</label><textarea id="rNote"></textarea><div class="actions"><button class="primary" onclick="saveReminder()">Сохранить</button><button class="secondary" onclick="closeModal()">Отмена</button></div>`);
+}
+function saveReminder(){
+ const w=current(); const title=rTitle.value.trim()||'Напоминание';
+ w.reminders.push({id:Date.now(),title,date:rDate.value,time:rTime.value,type:rType.value,note:rNote.value.trim(),done:false});
+ save();closeModal();scheduleReminderNotification(w.reminders[w.reminders.length-1],w);showReminders();
+}
+function quickReminder(type){
+ const w=current(); const base=new Date(w.date+'T09:00'); let d=new Date(base);
+ let title='';let note='';
+ if(type==='prep'){d.setDate(d.getDate()-1);title='Проверить технику';note='Батареи, карты памяти, камеры, объективы, вспышки и свет.'}
+ if(type==='sound'){d.setDate(d.getDate()-1);title='Проверить свет и вспышки';note='Вспышки, батареи, аккумуляторы, свет, запасные элементы.'}
+ if(type==='timeline'){d.setDate(d.getDate()-1);title='Проверить тайминг';note='Сверить время сборов, ЗАГС, прогулки, выездной регистрации и банкета.'}
+ if(type==='backup'){d.setDate(d.getDate()+1);title='Сделать резервную копию';note='Скопировать материал минимум в две независимые копии.'}
+ const iso=d.toISOString().slice(0,10);
+ w.reminders.push({id:Date.now(),title,date:iso,time:'09:00',type,note,done:false});
+ save();scheduleReminderNotification(w.reminders[w.reminders.length-1],w);showReminders();
+}
+function toggleReminder(i,v){current().reminders[i].done=v;save();showReminders()}
+function deleteReminder(i){current().reminders.splice(i,1);save();showReminders()}
+
+function currentReminderPreview(w){
+ const arr=[...(w.reminders||[])].filter(x=>!x.done).sort((a,b)=>reminderDateTime(a).localeCompare(reminderDateTime(b))).slice(0,4);
+ if(!arr.length)return `<div class="muted">Активных напоминаний нет.</div><button class="secondary" style="width:100%;margin-top:9px" onclick="showReminders()">Открыть напоминания</button>`;
+ return arr.map(r=>`<div class="check"><div style="flex:1"><b>${reminderLabel(r)}</b><div class="muted">${formatDate(r.date)} · ${esc(r.time||'09:00')}</div></div></div>`).join('')+`<button class="secondary" style="width:100%;margin-top:9px" onclick="showReminders()">Все напоминания</button>`;
+}
+
+function showTeam(){
+ const t=current().team||{};
+ app.innerHTML=`<h2>Команда</h2><div class="card">
+ ${[['host','🎤 Ведущий'],['photographer','📷 Фотограф'],['decorator','🌿 Оформители'],['organizer','📋 Организатор'],['specialEffects','✨ Спецэффекты'],['makeup','💄 Визажисты'],['other','👤 Другое']].map(([k,l])=>`<label>${l}</label><input id="teamOnly_${k}" value="${esc(t[k]||'')}">`).join('')}
+ <button class="primary" style="width:100%;margin-top:10px" onclick="saveTeam()">Сохранить команду</button>
+ </div>`;
+}
+function saveTeam(){
+ const w=current();w.team={host:teamOnly_host.value.trim(),photographer:teamOnly_photographer.value.trim(),decorator:teamOnly_decorator.value.trim(),organizer:teamOnly_organizer.value.trim(),specialEffects:teamOnly_specialEffects.value.trim(),makeup:teamOnly_makeup.value.trim(),other:teamOnly_other.value.trim()};save();showTeam();
+}
+function showContract(){
+ const w=current();
+ app.innerHTML=`<h2>2. Договор</h2>
+ <div class="card">
+  <div class="check"><input type="checkbox" ${w.contract?'checked':''} onchange="current().contract=this.checked;save();showContract()"><label><b>Договор подписан</b></label></div>
+  <label>Дата подписания</label><input id="contractDate" type="date" value="${esc(w.contractDate||'')}">
+  <label>Номер договора</label><input id="contractNumber" value="${esc(w.contractNumber||'')}">
+  <label>Условия / примечание</label><textarea id="contractNote">${esc(w.contractNote||'')}</textarea>
+  <button class="primary" style="width:100%;margin-top:10px" onclick="saveContract()">Сохранить договор</button>
+ </div>`;
+}
+function saveContract(){
+ const w=current();w.contractDate=contractDate.value;w.contractNumber=contractNumber.value;w.contractNote=contractNote.value.trim();save();showContract();
+}
+function showContacts(){
+ const w=current(),t=w.team||{};
+ app.innerHTML=`<h2>3. Контакты</h2>
+ <div class="card">
+  <h3>Пара</h3>
+  <label>Жених</label><input id="cGroom" value="${esc(w.contacts.groom||'')}">
+  <label>Невеста</label><input id="cBride" value="${esc(w.contacts.bride||'')}">
+  <h3>Заказчики</h3>
+  <label>Кто заказчик</label><input id="cCustomer" value="${esc(w.contacts.customer)}">
+  <label>Телефон</label><input id="cPhone" value="${esc(w.contacts.phone)}" type="tel">
+  <label>Telegram / WhatsApp</label><input id="cTelegram" value="${esc(w.contacts.telegram)}">
+  <h3>Команда</h3>
+  ${[['host','🎤 Ведущий'],['photographer','📷 Фотограф'],['decorator','🌿 Оформители'],['organizer','📋 Организатор'],['specialEffects','✨ Спецэффекты'],['makeup','💄 Визажисты'],['other','👤 Другое']].map(([k,l])=>`<label>${l}</label><input id="team_${k}" value="${esc(t[k]||'')}">`).join('')}
+  <button class="primary" style="width:100%;margin-top:10px" onclick="saveContacts()">Сохранить контакты</button>
+ </div>`;
+}
+function saveContacts(){
+ const w=current();w.contacts={...w.contacts,groom:cGroom.value.trim(),bride:cBride.value.trim(),customer:cCustomer.value.trim(),phone:cPhone.value.trim(),telegram:cTelegram.value.trim()};
+ w.team={host:team_host.value.trim(),photographer:team_photographer.value.trim(),decorator:team_decorator.value.trim(),organizer:team_organizer.value.trim(),specialEffects:team_specialEffects.value.trim(),makeup:team_makeup.value.trim(),other:team_other.value.trim()};
+ save();showContacts();
+}
+function showLocations(){
+ const w=current();
+ app.innerHTML=`<h2>4. Локации</h2>
+ <div class="card">
+  <label>Место сборов</label><input id="locPrep" value="${esc(w.bridePrep)}">
+  <div class="formgrid"><div><label>Начало сборов</label><input id="locPrepStart" type="time" value="${esc(w.route.prepStart)}"></div><div><label>Конец сборов</label><input id="locPrepEnd" type="time" value="${esc(w.route.prepEnd)}"></div></div>
+  <h3>Регистрация (можно выбрать оба варианта)</h3>
+  <div class="check"><input id="locHasZags" type="checkbox" ${w.hasZags?'checked':''} onchange="toggleLocationCeremony()"><label for="locHasZags">📜 Есть ЗАГС</label></div>
+  <div id="locZagsBlock" style="display:${w.hasZags?'block':'none'}"><label>Адрес / название ЗАГСа</label><input id="locRegistry" value="${esc(w.registry)}"><div class="formgrid"><div><label>Начало ЗАГС</label><input id="locRegistryStart" type="time" value="${esc(w.route.registryStart)}"></div><div><label>Конец ЗАГС</label><input id="locRegistryEnd" type="time" value="${esc(w.route.registryEnd)}"></div></div></div>
+  <label>Место прогулки</label><input id="locWalk" value="${esc(w.walkPlace)}">
+  <div class="formgrid"><div><label>Начало прогулки</label><input id="locWalkStart" type="time" value="${esc(w.route.walkStart)}"></div><div><label>Конец прогулки</label><input id="locWalkEnd" type="time" value="${esc(w.route.walkEnd)}"></div></div>
+  <label>Банкетный зал</label><input id="locHall" value="${esc(w.hall)}">
+  <div class="formgrid"><div><label>Начало банкета</label><input id="locBanquetStart" type="time" value="${esc(w.route.banquetStart)}"></div><div><label>Конец банкета</label><input id="locBanquetEnd" type="time" value="${esc(w.route.banquetEnd)}"></div></div>
+  <div class="check"><input id="locHasOutdoor" type="checkbox" ${w.hasOutdoor?'checked':''} onchange="toggleLocationCeremony()"><label for="locHasOutdoor">💍 Есть выездная регистрация</label></div>
+  <div id="locOutdoorBlock" style="display:${w.hasOutdoor?'block':'none'}"><label>Место выездной регистрации</label><input id="locOutdoorPlace" value="${esc(w.outdoorPlace)}"><div class="formgrid"><div><label>Начало выездной</label><input id="locOutdoorStart" type="time" value="${esc(w.route.outdoorStart)}"></div><div><label>Конец выездной</label><input id="locOutdoorEnd" type="time" value="${esc(w.route.outdoorEnd)}"></div></div></div>
+  <label>Количество гостей</label><input id="locGuests" type="number" value="${esc(w.guests)}">
+  <button class="primary" style="width:100%;margin-top:10px" onclick="saveLocations()">Сохранить локации</button>
+ </div>`;
+}
+function toggleLocationCeremony(){
+ const z=document.getElementById('locZagsBlock'),o=document.getElementById('locOutdoorBlock');
+ if(z)z.style.display=locHasZags.checked?'block':'none'; if(o)o.style.display=locHasOutdoor.checked?'block':'none';
+}
+function saveLocations(){
+ const w=current();w.hasZags=locHasZags.checked;w.hasOutdoor=locHasOutdoor.checked;w.ceremonyType=w.hasZags&&w.hasOutdoor?'both':w.hasZags?'zags':w.hasOutdoor?'outdoor':'none';w.outdoorCeremony=w.hasOutdoor;
+ w.bridePrep=locPrep.value.trim();w.registry=locRegistry.value.trim();w.walkPlace=locWalk.value.trim();w.hall=locHall.value.trim();w.guests=locGuests.value;
+ w.route={...w.route,prepStart:locPrepStart.value,prepEnd:locPrepEnd.value,registryStart:locRegistryStart.value,registryEnd:locRegistryEnd.value,walkStart:locWalkStart.value,walkEnd:locWalkEnd.value,banquetStart:locBanquetStart.value,banquetEnd:locBanquetEnd.value,outdoorStart:locOutdoorStart.value,outdoorEnd:locOutdoorEnd.value};
+ w.outdoorPlace=locOutdoorPlace.value.trim();syncRouteToEvents(w);save();showLocations();
+}
+function showTimeline(){
+ const w=current(),r=w.route;
+ app.innerHTML=`<h2>5. Тайминг</h2>
+ <div class="card">
+  <h3>События по локациям</h3>
+  <div class="formgrid"><div><label>Сборы — начало</label><input id="tmPrepStart" type="time" value="${esc(r.prepStart)}"></div><div><label>Сборы — конец</label><input id="tmPrepEnd" type="time" value="${esc(r.prepEnd)}"></div></div>
+  ${w.hasZags?`<h3>📜 ЗАГС</h3><div class="formgrid"><div><label>ЗАГС — начало</label><input id="tmRegStart" type="time" value="${esc(r.registryStart)}"></div><div><label>ЗАГС — конец</label><input id="tmRegEnd" type="time" value="${esc(r.registryEnd)}"></div></div>`:''}
+  <div class="formgrid"><div><label>Прогулка — начало</label><input id="tmWalkStart" type="time" value="${esc(r.walkStart)}"></div><div><label>Прогулка — конец</label><input id="tmWalkEnd" type="time" value="${esc(r.walkEnd)}"></div></div>
+  <div class="formgrid"><div><label>Банкет — начало</label><input id="tmBanquetStart" type="time" value="${esc(r.banquetStart)}"></div><div><label>Банкет — конец</label><input id="tmBanquetEnd" type="time" value="${esc(r.banquetEnd)}"></div></div>
+  ${w.hasOutdoor?`<h3>💍 Выездная регистрация</h3><div class="muted">${esc(w.outdoorPlace||'Место не указано')}</div><div class="formgrid"><div><label>Выездная — начало</label><input id="tmOutdoorStart" type="time" value="${esc(r.outdoorStart)}"></div><div><label>Выездная — конец</label><input id="tmOutdoorEnd" type="time" value="${esc(r.outdoorEnd)}"></div></div>`:''}
+  <button class="primary" style="width:100%;margin-top:10px" onclick="saveTimeline()">Сохранить тайминг</button>
+ </div>
+ <h3>Дополнительные события</h3>
+ <div class="card">${timelineHTML(99)}</div>`;
+}
+function saveTimeline(){
+ const w=current();w.route={...w.route,prepStart:tmPrepStart.value,prepEnd:tmPrepEnd.value,registryStart:w.hasZags?tmRegStart.value:w.route.registryStart,registryEnd:w.hasZags?tmRegEnd.value:w.route.registryEnd,walkStart:tmWalkStart.value,walkEnd:tmWalkEnd.value,banquetStart:tmBanquetStart.value,banquetEnd:tmBanquetEnd.value,outdoorStart:w.hasOutdoor?tmOutdoorStart.value:w.route.outdoorStart,outdoorEnd:w.hasOutdoor?tmOutdoorEnd.value:w.route.outdoorEnd};w.outdoorCeremony=w.hasOutdoor;syncRouteToEvents(w);save();showTimeline();
+}
+
+function showClientProfile(){
+ const w=current(),c=w.contacts,p=w.clientProfile;
+ app.innerHTML=`<h2>13. Клиентская база</h2>
+ <div class="card">
+  <h3>Пара</h3>
+  <label>Жених</label><input id="cpGroom" value="${esc(c.groom)}">
+  <label>Телефон жениха</label><input id="cpGroomPhone" type="tel" value="${esc(c.groomPhone)}">
+  <label>Невеста</label><input id="cpBride" value="${esc(c.bride)}">
+  <label>Телефон невесты</label><input id="cpBridePhone" type="tel" value="${esc(c.bridePhone)}">
+  <label>Кто заказчик</label><input id="cpCustomer" value="${esc(c.customer)}">
+  <label>Источник клиента</label><input id="cpSource" value="${esc(p.source)}" placeholder="Рекомендация, Instagram, сайт...">
+ </div>
+ <div class="card">
+  <h3>Что важно знать о паре</h3>
+  <label>Как познакомились / история</label><textarea id="cpAnniversary">${esc(p.anniversary)}</textarea>
+  <label>Что любят / предпочтения</label><textarea id="cpPreferences">${esc(p.preferences)}</textarea>
+  <label>Важные люди, которых обязательно снять</label><textarea id="cpImportant">${esc(p.importantPeople)}</textarea>
+  <label>Что обязательно снять</label><textarea id="cpMust">${esc(p.mustFilm)}</textarea>
+  <label>Что лучше не снимать</label><textarea id="cpAvoid">${esc(p.avoidFilm)}</textarea>
+  <label>Любимая музыка</label><textarea id="cpMusic">${esc(p.music)}</textarea>
+  <label>Дополнительные заметки</label><textarea id="cpNotes">${esc(p.notes)}</textarea>
+  <button class="primary" style="width:100%;margin-top:10px" onclick="saveClientProfile()">Сохранить профиль клиента</button>
+ </div>
+ <div class="card"><div class="muted">Эта информация хранится отдельно у каждой свадьбы и помогает быстро вспомнить особенности пары перед съёмкой.</div></div>`;
+}
+function saveClientProfile(){
+ const w=current();
+ w.contacts.groom=cpGroom.value.trim();w.contacts.groomPhone=cpGroomPhone.value.trim();
+ w.contacts.bride=cpBride.value.trim();w.contacts.bridePhone=cpBridePhone.value.trim();
+ w.contacts.customer=cpCustomer.value.trim();w.clientProfile.source=cpSource.value.trim();
+ w.clientProfile.anniversary=cpAnniversary.value.trim();w.clientProfile.preferences=cpPreferences.value.trim();
+ w.clientProfile.importantPeople=cpImportant.value.trim();w.clientProfile.mustFilm=cpMust.value.trim();
+ w.clientProfile.avoidFilm=cpAvoid.value.trim();w.clientProfile.music=cpMusic.value.trim();w.clientProfile.notes=cpNotes.value.trim();
+ save();showClientProfile();
+}
+
+function progressText(obj){const vals=Object.values(obj||{}).filter(v=>typeof v==='boolean');const done=vals.filter(Boolean).length;return `${done}/${vals.length}`}
+function paymentLabel(w){const price=Number(w.price||0),dep=Number(w.deposit||0),left=Math.max(price-dep,0);if(w.paymentStatus==='paid'||left===0)return 'Оплачено полностью';if(dep>0)return `Остаток ${money(left)}`;return 'Предоплата не внесена'}
+function showMoney(){const w=current(),price=Number(w.price||0),dep=Number(w.deposit||0),left=Math.max(price-dep,0);app.innerHTML=`<h2>1. Оплата</h2><div class="card"><div class="row"><div class="stat"><b>${money(price)}</b><span class="muted">стоимость</span></div><div class="stat"><b>${money(dep)}</b><span class="muted">внесено</span></div><div class="stat"><b>${money(left)}</b><span class="muted">остаток</span></div></div><label>Статус оплаты</label><select onchange="current().paymentStatus=this.value;save();showMoney()"><option value="unpaid" ${w.paymentStatus==='unpaid'?'selected':''}>Предоплата не внесена</option><option value="partial" ${w.paymentStatus==='partial'?'selected':''}>Частично оплачено</option><option value="paid" ${w.paymentStatus==='paid'?'selected':''}>Оплачено полностью</option></select><label>Срок оплаты остатка</label><input type="date" value="${esc(w.balanceDate)}" onchange="current().balanceDate=this.value;save()"><h3>Платежи</h3>${(w.payments||[]).map((x,i)=>`<div class="equipment-item">${esc(x.date||'')} · <b>${money(x.amount)}</b> · ${esc(x.note||'')} <button class="secondary smallbtn" onclick="removePayment(${i})">×</button></div>`).join('')||'<div class="muted">Платежей пока нет</div>'}<button class="primary" style="width:100%;margin-top:10px" onclick="addPayment()">＋ Добавить платеж</button></div>`}
+function addPayment(){const amount=prompt('Сумма платежа, ₽');if(!amount||isNaN(amount))return;const note=prompt('Комментарий к платежу','Предоплата')||'';current().payments.push({amount:Number(amount),date:new Date().toISOString().slice(0,10),note});current().deposit=String(current().payments.reduce((a,x)=>a+Number(x.amount||0),0));const w=current();w.paymentStatus=Number(w.deposit)>=Number(w.price)?'paid':Number(w.deposit)>0?'partial':'unpaid';save();showMoney()}
+function removePayment(i){const w=current();w.payments.splice(i,1);w.deposit=String(w.payments.reduce((a,x)=>a+Number(x.amount||0),0));w.paymentStatus=Number(w.deposit)>=Number(w.price)?'paid':Number(w.deposit)>0?'partial':'unpaid';save();showMoney()}
+function showTasks(){
+ const w=current();
+ const titles={shooting:'📷 Съёмка',interviews:'👥 Групповые и портретные',montage:'🖥️ После съёмки'};
+ const cats=Object.keys(checklistTemplate);
+ const total=cats.reduce((a,k)=>a+(w.checks[k]||[]).length,0), done=cats.reduce((a,k)=>a+(w.checks[k]||[]).filter(x=>x.done).length,0);
+ app.innerHTML=`<h2>☑ Чеклисты</h2><div class="card hero"><div class="section-title"><b>${esc(w.names||'Текущая свадьба')}</b><span class="badge">${done}/${total}</span></div><div class="muted" style="margin-top:5px">Все чеклисты сохраняются отдельно для каждой свадьбы.</div></div>`+
+ cats.map(k=>`<div class="card"><h3>${titles[k]}</h3>${(w.checks[k]||[]).map((item,i)=>`<div class="check"><input type="checkbox" ${item.done?'checked':''} onchange="toggleTask('${k}',${i},this.checked)"><label style="${item.done?'text-decoration:line-through;opacity:.6':''}">${esc(item.text)}</label></div>`).join('')}</div>`).join('')+
+ `<button class="secondary" style="width:100%" onclick="resetTasks()">Сбросить чеклисты этой свадьбы</button>`;
+}
+function toggleTask(cat,i,value){const w=current(); if(!w.checks[cat])w.checks[cat]=[]; w.checks[cat][i].done=value; save(); showTasks();}
+function resetTasks(){if(!confirm('Сбросить все чеклисты только для этой свадьбы?'))return;const w=current();Object.keys(checklistTemplate).forEach(k=>w.checks[k]=(w.checks[k]||[]).map(x=>({...x,done:false})));save();showTasks();}
+function showShootPlan(){const w=current(),o=w.shotPlan;const labels=[['details','Детали: кольца, платье, букет, декор'],['prep','Сборы и портреты'],['zags','ЗАГС: вход, церемония, выход'],['walk','Прогулка пары'],['guests','Гости и важные родственники'],['banquet','Общие планы банкетного зала'],['dance','Первый танец'],['toasts','Тосты и реакции гостей'],['cake','Торт'],['finale','Финал вечера']];app.innerHTML=`<h2>6. План фотосъёмки</h2><div class="card">${labels.map(([k,l])=>`<div class="check"><input type="checkbox" ${o[k]?'checked':''} onchange="current().shotPlan['${k}']=this.checked;save();showShootPlan()"><label>${l}</label></div>`).join('')}</div>`}
+function showLightChecklist(){const w=current(),o=w.light;const labels=[['groom','Вспышка / свет на сборах'],['bride','Портативный свет'],['host','Свет на банкете'],['recorder','Запасные батареи'],['mixer','Заряженные аккумуляторы'],['backup','Резервная вспышка / свет'],['levels','Проверить мощность и настройки']];app.innerHTML=`<h2>Свет и вспышки</h2><div class="card">${labels.map(([k,l])=>`<div class="check"><input type="checkbox" ${o[k]?'checked':''} onchange="current().light['${k}']=this.checked;save();showLightChecklist()"><label>${l}</label></div>`).join('')}</div>`}
+function showPost(){const w=current(),o=w.post;const labels=[['cards','Карты скопированы'],['backup1','Резервная копия №1'],['backup2','Резервная копия №2'],['sorted','Материал отсортирован'],['proxies','Превью подготовлены'],['rough','Отбор и базовая обработка'],['color','Цветокоррекция'],['sound','Ретушь ключевых кадров'],['export','Финальный экспорт'],['delivered','Готовый материал передан клиенту']];app.innerHTML=`<h2>Обработка</h2><div class="card">${labels.map(([k,l])=>`<div class="check"><input type="checkbox" ${o[k]?'checked':''} onchange="current().post['${k}']=this.checked;save();showPost()"><label>${l}</label></div>`).join('')}</div><div class="card"><b>Готовность: ${progressText(o)}</b></div>`}
+function showDelivery(){
+ const w=current(),o=w.deliverables||{};
+ const labels=[['preview','Превью отправлены'],['web','Версия для сайта / соцсетей готова'],['print','Файлы для печати подготовлены'],['album','Материал для фотокниги подготовлен'],['raw','RAW переданы клиенту'],['delivered','Финальный материал передан клиенту']];
+ app.innerHTML=`<h2>📦 Выдача материала</h2><div class="card"><div class="muted">Статус выдачи для «${esc(w.names||'Без названия')}»</div>${labels.map(([k,l])=>`<div class="check"><input type="checkbox" ${o[k]?'checked':''} onchange="current().deliverables['${k}']=this.checked;save();showDelivery()"><label>${l}</label></div>`).join('')}</div><div class="card"><b>Готовность: ${progressText(o)}</b></div>`;
+}
+
+function v20SetActive(key){document.querySelectorAll('#v20BottomNav button').forEach(b=>b.classList.toggle('active',b.dataset.nav===key));}
+function openCurrentOrNext(){
+ v20SetActive('current');
+ const list=(db&&db.weddings)||[];const today=new Date();today.setHours(0,0,0,0);
+ const cur=list.find(w=>w.date&&new Date(w.date).toDateString()===today.toDateString()&&!w.archived);
+ if(cur){openWedding(cur.id);return;}
+ const next=list.filter(w=>w.date&&new Date(w.date)>=today&&!w.archived).sort((a,b)=>new Date(a.date)-new Date(b.date))[0];
+ if(next){openWedding(next.id);return;} showWeddings();
+}
+function showLeads(){
+ headerTitle.textContent='Лиды'; v20SetActive('more'); const leads=db.leads||[];
+ const stages=[['new','Новые'],['contact','Контакт'],['proposal','Предложение'],['hold','Предбронь'],['booked','Бронь'],['lost','Отказ']];
+ app.innerHTML=`<h2>🧲 Лиды</h2><div class="card"><div class="section-title"><b>Воронка</b><button class="primary smallbtn" onclick="newLead()">＋ Лид</button></div><div class="v21-pipeline" style="margin-top:10px">${stages.slice(0,5).map(([k,l])=>`<div class="v21-stage"><b>${leads.filter(x=>x.stage===k).length}</b><span>${l}</span></div>`).join('')}</div></div>${stages.map(([k,l])=>{const arr=leads.filter(x=>x.stage===k);if(!arr.length)return '';return `<div class="v21-section">${l}</div><div class="v21-list">${arr.map(x=>`<div class="v21-row"><div><b>${esc(x.names||'Без имени')}</b><div class="muted">${esc(x.date||'Дата не указана')} · ${esc(x.city||'')} · ${money(x.budget||0)}</div></div><div class="v21-actions"><button class="secondary smallbtn" onclick="editLead(${x.id})">✎</button><button class="secondary danger smallbtn" onclick="deleteLead(${x.id})">×</button></div></div>`).join('')}</div>`}).join('')}<button class="secondary" style="width:100%;margin-top:15px" onclick="showWeddings()">← Свадьбы</button>`;
+}
+function newLead(){openLeadModal(null)}
+function editLead(id){openLeadModal((db.leads||[]).find(x=>x.id===id))}
+function openLeadModal(l){const exists=!!l;l=l||{id:Date.now(),names:'',date:'',city:'',budget:'60000',source:'',stage:'new',note:''};openModal(exists?'Изменить лид':'Новый лид',`<label>Пара / клиент</label><input id="lNames" value="${esc(l.names)}"><label>Дата</label><input id="lDate" type="date" value="${esc(l.date)}"><label>Город</label><input id="lCity" value="${esc(l.city)}"><div class="formgrid"><div><label>Бюджет, ₽</label><input id="lBudget" type="number" value="${esc(l.budget)}"></div><div><label>Источник</label><input id="lSource" value="${esc(l.source)}"></div></div><label>Этап</label><select id="lStage"><option value="new">Новый</option><option value="contact">Контакт</option><option value="proposal">Предложение</option><option value="hold">Предбронь</option><option value="booked">Бронь</option><option value="lost">Отказ</option></select><label>Заметка</label><textarea id="lNote">${esc(l.note)}</textarea><div class="actions"><button class="primary" onclick="saveLead(${l.id})">Сохранить</button><button class="secondary" onclick="closeModal()">Отмена</button></div>`);document.getElementById('lStage').value=l.stage||'new'}
+function saveLead(id){db.leads=db.leads||[];let l=db.leads.find(x=>x.id===id);if(!l){l={id};db.leads.push(l)}Object.assign(l,{names:lNames.value.trim(),date:lDate.value,city:lCity.value.trim(),budget:lBudget.value,source:lSource.value.trim(),stage:lStage.value,note:lNote.value.trim()});save();closeModal();showLeads()}
+function deleteLead(id){if(confirm('Удалить лид?')){db.leads=(db.leads||[]).filter(x=>x.id!==id);save();showLeads()}}
+function showBusiness(){
+ headerTitle.textContent='Бизнес';v20SetActive('more');const ws=db.weddings||[],leads=db.leads||[],revenue=ws.reduce((a,w)=>a+Number(w.price||0),0),avg=ws.length?Math.round(revenue/ws.length):0,unpaid=ws.reduce((a,w)=>a+Math.max(Number(w.price||0)-Number(w.deposit||0),0),0);
+ app.innerHTML=`<h2>📊 Бизнес</h2><div class="v21-home-stats"><div class="v21-home-stat"><b>${ws.length}</b><span>Свадеб всего</span></div><div class="v21-home-stat"><b>${money(revenue)}</b><span>Сумма броней</span></div><div class="v21-home-stat"><b>${money(avg)}</b><span>Средний чек</span></div></div><div class="card"><div class="section-title"><b>Финансы</b></div><div class="muted" style="margin-top:8px">Остаток по всем свадьбам: <b style="color:var(--text)">${money(unpaid)}</b></div></div><div class="card"><div class="section-title"><b>Лиды</b><span class="badge">${leads.length} всего</span></div><div class="v21-pipeline" style="margin-top:10px">${[['new','Новые'],['contact','Контакт'],['proposal','Предложение'],['hold','Предбронь'],['booked','Брони']].map(([k,l])=>`<div class="v21-stage"><b>${leads.filter(x=>x.stage===k).length}</b><span>${l}</span></div>`).join('')}</div></div><button class="secondary" style="width:100%" onclick="showWeddings()">← Свадьбы</button>`;
+}
+function showMoreMenu(){
+ headerTitle.textContent='Ещё';v20SetActive('more');app.innerHTML=`<h2>Ещё</h2><div class="v18-grid"><div class="card v18-mini" onclick="showLeads()"><div class="ico">🧲</div><b>Лиды</b><div class="muted">Запросы и воронка бронирований</div></div><div class="card v18-mini" onclick="showBusiness()"><div class="ico">📊</div><b>Бизнес</b><div class="muted">Выручка и средний чек</div></div><div class="card v18-mini" onclick="showChecklists()"><div class="ico">☑️</div><b>Чеклисты</b><div class="muted">Подготовка и съёмка</div></div><div class="card v18-mini" onclick="showIdeas()"><div class="ico">💡</div><b>Идеи</b><div class="muted">Заметки и задумки</div></div><div class="card v18-mini" onclick="showReminders()"><div class="ico">🔔</div><b>Напоминания</b><div class="muted">Что нельзя забыть</div></div><div class="card v18-mini" onclick="showStats()"><div class="ico">📈</div><b>Статистика</b><div class="muted">Свадьбы и деньги</div></div><div class="card v18-mini" onclick="showSettings()"><div class="ico">⚙️</div><b>Настройки</b><div class="muted">Приложение и база</div></div></div>`;
+}
+
+function showCurrent(){
+ const w=opCurrent();headerTitle.textContent=w.names||'Свадьба';
+ const dep=Number(w.deposit||0),price=Number(w.price||0),left=Math.max(price-dep,0),next=nextEvent(w);
+ const backup=w.post?.backup1&&w.post?.backup2;
+ const today=w.date===new Date().toISOString().slice(0,10);
+ const role=KEY.includes('photographer')?'Фотограф':'Видеограф';
+ const activeRem=(w.reminders||[]).filter(r=>!r.done).length;
+ app.innerHTML=`<div class="card hero">
+  <div class="date">${formatDate(w.date)} · ${esc(w.city)}</div><div class="names">${esc(w.names)||'Без названия'}</div>
+  <div class="muted">${esc(w.start)}–${esc(w.end)} · ${role}</div>
+  <div style="margin-top:9px"><span class="badge ${w.contract?'ok':'warn'}">Договор: ${w.contract?'подписан':'не отмечен'}</span><span class="badge ${dep>0?'ok':'warn'}">Предоплата: ${money(dep)}</span><span class="badge ${backup?'ok':'warn'}">Бэкап: ${backup?'2 копии':'проверить'}</span></div>
+  <div class="row" style="margin-top:12px"><div class="stat"><b>${money(price)}</b><span class="muted">стоимость</span></div><div class="stat"><b>${money(left)}</b><span class="muted">остаток</span></div></div>
+  <div class="card" style="margin-top:10px;background:#151515">
+   <div class="section-title"><b>🚨 Панель дня</b><span class="badge">${today?'Сегодня':'До свадьбы'}</span></div>
+   <div style="margin-top:9px">⏱ <b>Следующее:</b> ${next?esc(next.time)+' · '+esc(next.title):'нет событий'}</div>
+   <div style="margin-top:7px">📍 <b>Локация:</b> ${esc(next?.place||'не указана')}</div>
+   <div style="margin-top:7px">🔔 <b>Задач:</b> ${activeRem}</div>
+   <div style="margin-top:7px">🌦 <b>Погода:</b> ${esc(w.weather.condition||'не указана')} ${esc(w.weather.temp||'')} ${esc(w.weather.note||'')}</div>
+   <div style="margin-top:7px">💾 <b>Резерв:</b> ${backup?'две копии подтверждены':'нужно проверить'}</div>
+  </div>
+  <div class="card" style="margin-top:10px;background:#151515">
+   <div class="muted" style="margin-bottom:7px">Локации и время</div>
+   <div>🏨 Сборы: <b>${esc(w.bridePrep||'—')}</b> · ${esc(w.route.prepStart||'—')}–${esc(w.route.prepEnd||'—')}</div>
+   ${w.hasZags?`<div style="margin-top:6px">📜 ЗАГС: <b>${esc(w.registry||'—')}</b> · ${esc(w.route.registryStart||'—')}–${esc(w.route.registryEnd||'—')}</div>`:''}
+   <div style="margin-top:6px">🌳 Прогулка: <b>${esc(w.walkPlace||'—')}</b> · ${esc(w.route.walkStart||'—')}–${esc(w.route.walkEnd||'—')}</div>
+   ${w.hasOutdoor?`<div style="margin-top:6px">💍 Выездная: <b>${esc(w.outdoorPlace||'—')}</b> · ${esc(w.route.outdoorStart||'—')}–${esc(w.route.outdoorEnd||'—')}</div>`:''}
+   <div style="margin-top:6px">🍽 Банкет: <b>${esc(w.hall||'—')}</b> · ${esc(w.route.banquetStart||'—')}–${esc(w.route.banquetEnd||'—')}</div>
+  </div>
+  <div class="grid" style="margin-top:10px">
+   <div class="tile" onclick="showFinance()"><div class="icon">💰</div><b>Финансы</b><span>${money(left)} осталось</span></div>
+   <div class="tile" onclick="showLogistics()"><div class="icon">🚗</div><b>Логистика</b><span>Переезды и интервалы</span></div>
+   <div class="tile" onclick="showShotList()"><div class="icon">🎯</div><b>Shot List</b><span>${progressText(w.shotPlan)}</span></div>
+   <div class="tile" onclick="showWishes()"><div class="icon">❤️</div><b>Пожелания</b><span>Обязательно · нельзя</span></div>
+   <div class="tile" onclick="showGuests()"><div class="icon">👥</div><b>Гости</b><span>${esc(w.guests||'—')} гостей</span></div>
+   <div class="tile" onclick="showBackupControl()"><div class="icon">💾</div><b>Резерв</b><span>${backup?'Готово':'Требует проверки'}</span></div>
+   <div class="tile" onclick="showWeather()"><div class="icon">🌦</div><b>Погода</b><span>${esc(w.weather.condition||'Заполнить')}</span></div>
+   <div class="tile" onclick="showJournal()"><div class="icon">📝</div><b>Журнал</b><span>Заметки по свадьбе</span></div>
+  </div>
+  <button class="secondary" style="width:100%;margin-top:10px" onclick="editWedding(${w.id})">✎ Изменить данные свадьбы</button>
+  <button class="secondary" style="width:100%;margin-top:8px" onclick="archiveWedding(${w.id})">${w.archived?'↩ Вернуть из архива':'🗄 В архив'}</button>
+ </div>
+ <div class="grid">
+  <div class="tile" onclick="showTimeline()"><div class="icon">⏱</div><b>Тайминг</b><span>${w.events.length} событий</span></div>
+  <div class="tile" onclick="showTeam()"><div class="icon">👥</div><b>Команда</b><span>Все участники</span></div>
+  <div class="tile" onclick="showEquipmentChecklist()"><div class="icon">${role==='Фотограф'?'📷':'🎥'}</div><b>Техника</b><span>Проверка комплекта</span></div>
+  <div class="tile" onclick="showTasks()"><div class="icon">☑</div><b>Чеклисты</b><span>Подготовка и работа</span></div>
+  <div class="tile" onclick="showPost()"><div class="icon">🖥️</div><b>Постпродакшн</b><span>Этапы готовности</span></div>
+  <div class="tile" onclick="showReminders()"><div class="icon">🔔</div><b>Напоминания</b><span>${activeRem} активных</span></div>
+ </div>
+ <div class="card"><div class="section-title"><b>Ближайшее событие</b><span class="muted">${esc(next?.time||'—')}</span></div><div style="font-size:18px;margin-top:10px">${role==='Фотограф'?'📷':'🎬'} ${esc(next?.title||'Нет событий')}</div><div class="muted">${esc(next?.place||'Локация не указана')}</div></div>
+ <h3>Тайминг</h3><div class="card">${timelineHTML(4)}</div>
+ <h3>🔔 Ближайшие задачи</h3><div class="card">${currentReminderPreview(w)}</div>`;
+}
+
+function timelineHTML(limit=999){
+ const w=current();if(!w.events.length)return '<div class="empty">Событий нет</div>';
+ return '<div class="timeline">'+w.events.slice(0,limit).map(e=>`<div class="event"><div class="eventrow"><div><div class="time">${esc(e.time)} — ${esc(e.title)}</div><div class="muted">${esc(e.place||'')} ${e.place&&e.note?'· ':''}${esc(e.note||'')}</div></div><div class="eventactions"><button class="secondary" onclick="editEvent(${e.id})">✎</button><button class="secondary danger" onclick="deleteEvent(${e.id})">×</button></div></div></div>`).join('')+'</div>';
+}
+function showTimelineLegacy(){const w=current();app.innerHTML=`<h2>Тайминг</h2><div class="card"><div class="formgrid"><div><label>Начало</label><input type="time" value="${esc(w.start)}" onchange="weddingField('start',this.value)"></div><div><label>Окончание</label><input type="time" value="${esc(w.end)}" onchange="weddingField('end',this.value)"></div></div></div><div class="card">${timelineHTML()}</div><button class="primary" style="width:100%" onclick="editEvent()">＋ Добавить событие</button>`}
+function weddingField(k,v){current()[k]=v;save()}
+function editEvent(id){
+ const w=current(),e=id?w.events.find(x=>x.id===id):{time:'',title:'',place:'',note:''};
+ openModal(id?'Изменить событие':'Новое событие',`<label>Время</label><input id="eTime" type="time" value="${esc(e.time)}"><label>Название</label><input id="eTitle" value="${esc(e.title)}"><label>Локация</label><input id="ePlace" value="${esc(e.place)}"><label>Заметка</label><textarea id="eNote">${esc(e.note)}</textarea><div class="actions"><button class="primary" onclick="saveEvent(${id||0})">Сохранить</button><button class="secondary" onclick="closeModal()">Отмена</button></div>`);
+}
+function saveEvent(id){const w=current(),old=id?w.events.find(x=>x.id===id):null,obj={id:id||Date.now(),time:eTime.value,title:eTitle.value.trim()||'Событие',place:ePlace.value.trim(),note:eNote.value.trim(),endTime:old?.endTime||''};
+ const routeMap={'route-prep':['prepStart','prepEnd'],'route-registry':['registryStart','registryEnd'],'route-walk':['walkStart','walkEnd'],'route-outdoor':['outdoorStart','outdoorEnd'],'route-banquet':['banquetStart','banquetEnd']};
+ if(id&&routeMap[id]){w.route[routeMap[id][0]]=obj.time;syncRouteToEvents(w)}else if(id)w.events=w.events.map(x=>x.id===id?obj:x);else w.events.push(obj);w.events.sort((a,b)=>(a.time||'').localeCompare(b.time||''));save();closeModal();showTimeline()}
+function deleteEvent(id){if(!confirm('Удалить событие?'))return;const w=current(),map={'route-prep':['prepStart','prepEnd'],'route-registry':['registryStart','registryEnd'],'route-walk':['walkStart','walkEnd'],'route-outdoor':['outdoorStart','outdoorEnd'],'route-banquet':['banquetStart','banquetEnd']};if(map[id]){w.route[map[id][0]]='';w.route[map[id][1]]='';syncRouteToEvents(w)}else{w.events=w.events.filter(x=>x.id!==id)}save();showTimeline()}
+function editWedding(id){
+ const w=db.weddings.find(x=>x.id===id)||makeWedding(db.nextId);
+ openModal('Данные свадьбы',`<label>Дата свадьбы</label><input id="wDate" type="date" value="${esc(w.date)}"><label>Статус даты</label><select id="wBookingStatus"><option value="confirmed" ${w.bookingStatus==='confirmed'?'selected':''}>🔴 Забронировано</option><option value="hold" ${w.bookingStatus==='hold'?'selected':''}>🟡 Предварительная бронь</option><option value="contract" ${w.bookingStatus==='contract'?'selected':''}>🔵 Договор подписан</option></select><label>Город</label><input id="wCity" value="${esc(w.city)}"><label>Молодожёны</label><input id="wNames" value="${esc(w.names)}"><div class="formgrid"><div><label>Телефон жениха</label><input id="wGroomPhone" type="tel" inputmode="tel" value="${esc(w.contacts.groomPhone||'')}"></div><div><label>Телефон невесты</label><input id="wBridePhone" type="tel" inputmode="tel" value="${esc(w.contacts.bridePhone||'')}"></div></div><div class="formgrid"><div><label>Начало</label><input id="wStart" type="time" value="${esc(w.start)}"></div><div><label>Окончание</label><input id="wEnd" type="time" value="${esc(w.end)}"></div></div><div class="formgrid"><div><label>Стоимость, ₽</label><input id="wPrice" type="number" value="${esc(w.price)}"></div><div><label>Предоплата внесена, ₽</label><input id="wDeposit" type="number" value="${esc(w.deposit)}"></div></div>
+ <div class="formgrid"><div><label>Количество гостей</label><input id="wGuests" type="number" min="0" value="${esc(w.guests)}" placeholder="Например, 70"></div><div><label>Банкетный зал</label><input id="wHall" value="${esc(w.hall)}" placeholder="Название / адрес"></div></div>
+ <label>Место прогулки</label><input id="wWalkPlace" value="${esc(w.walkPlace)}" placeholder="Парк, набережная, площадка...">
+ <label>Место сборов</label><input id="wBridePrep" value="${esc(w.bridePrep)}" placeholder="Адрес / отель / дом">
+ <h3>Регистрация (можно выбрать оба варианта)</h3><div class="check"><input id="wHasZags" type="checkbox" ${w.hasZags?'checked':''}><label for="wHasZags">Есть ЗАГС</label></div><div class="check"><input id="wHasOutdoor" type="checkbox" ${w.hasOutdoor?'checked':''}><label for="wHasOutdoor">Есть выездная регистрация</label></div>
+ <label>ЗАГС</label><input id="wRegistry" value="${esc(w.registry)}" placeholder="Название / адрес">
+ <label>Место выездной регистрации</label><input id="wOutdoorPlace" value="${esc(w.outdoorPlace)}" placeholder="Площадка / адрес">
+ <h3>Время по локациям</h3>
+ <div class="formgrid"><div><label>Сборы — начало</label><input id="rPrepStart" type="time" value="${esc(w.route.prepStart)}"></div><div><label>Сборы — конец</label><input id="rPrepEnd" type="time" value="${esc(w.route.prepEnd)}"></div></div>
+ <div class="formgrid"><div><label>ЗАГС — начало</label><input id="rRegistryStart" type="time" value="${esc(w.route.registryStart)}"></div><div><label>ЗАГС — конец</label><input id="rRegistryEnd" type="time" value="${esc(w.route.registryEnd)}"></div></div>
+ <div class="formgrid"><div><label>Прогулка — начало</label><input id="rWalkStart" type="time" value="${esc(w.route.walkStart)}"></div><div><label>Прогулка — конец</label><input id="rWalkEnd" type="time" value="${esc(w.route.walkEnd)}"></div></div>
+ <div class="formgrid"><div><label>Банкет — начало</label><input id="rBanquetStart" type="time" value="${esc(w.route.banquetStart)}"></div><div><label>Банкет — конец</label><input id="rBanquetEnd" type="time" value="${esc(w.route.banquetEnd)}"></div></div>
+ <div class="formgrid"><div><label>Выездная — начало</label><input id="rOutdoorStart" type="time" value="${esc(w.route.outdoorStart)}"></div><div><label>Выездная — конец</label><input id="rOutdoorEnd" type="time" value="${esc(w.route.outdoorEnd)}"></div></div>
+ <label>Дата предоплаты</label><input id="wDepositDate" type="date" value="${esc(w.depositDate)}"><div class="check"><input id="wContract" type="checkbox" ${w.contract?'checked':''}><label for="wContract">Договор подписан</label></div><label>Заказчик</label><input id="wCustomer" value="${esc(w.contacts.customer)}"><label>Телефон</label><input id="wPhone" value="${esc(w.contacts.phone)}"><label>Telegram</label><input id="wTelegram" value="${esc(w.contacts.telegram)}"><div class="actions"><button class="primary" onclick="saveWeddingForm(${id||0})">Сохранить</button><button class="secondary" onclick="closeModal()">Отмена</button></div>`);
+}
+function newWedding(){editWedding(0)}
+function saveWeddingForm(id){
+ let w=db.weddings.find(x=>x.id===id);
+ if(!w){w=makeWedding(db.nextId++,wDate.value,wCity.value.trim(),wNames.value.trim());db.weddings.push(w)}
+ const duplicate=db.weddings.find(x=>x.id!==w.id && x.date===wDate.value && !x.archived); if(duplicate && !confirm('На эту дату уже есть свадьба: '+(duplicate.names||'без названия')+'. Всё равно сохранить?')) return; Object.assign(w,{date:wDate.value,bookingStatus:wBookingStatus.value,city:wCity.value.trim(),names:wNames.value.trim(),start:wStart.value,end:wEnd.value,price:wPrice.value,deposit:wDeposit.value,depositDate:wDepositDate.value,contract:wContract.checked,guests:wGuests.value,hall:wHall.value.trim(),walkPlace:wWalkPlace.value.trim(),bridePrep:wBridePrep.value.trim(),registry:wRegistry.value.trim()});
+ w.hasZags=wHasZags.checked;w.hasOutdoor=wHasOutdoor.checked;w.ceremonyType=w.hasZags&&w.hasOutdoor?'both':w.hasZags?'zags':w.hasOutdoor?'outdoor':'none';w.outdoorCeremony=w.hasOutdoor;
+ w.route={...w.route,prepStart:rPrepStart.value,prepEnd:rPrepEnd.value,registryStart:rRegistryStart.value,registryEnd:rRegistryEnd.value,walkStart:rWalkStart.value,walkEnd:rWalkEnd.value,banquetStart:rBanquetStart.value,banquetEnd:rBanquetEnd.value,outdoorStart:rOutdoorStart.value,outdoorEnd:rOutdoorEnd.value};w.outdoorPlace=wOutdoorPlace.value.trim();syncRouteToEvents(w);
+ w.contacts={...w.contacts,customer:wCustomer.value.trim(),phone:wPhone.value.trim(),telegram:wTelegram.value.trim(),groomPhone:wGroomPhone.value.trim(),bridePhone:wBridePhone.value.trim()};
+ db.selected=w.id;save();closeModal();showCurrent();
+}
+function deleteWedding(id){if(db.weddings.length===1)return alert('Нельзя удалить единственную свадьбу.');if(confirm('Удалить эту свадьбу?')){db.weddings=db.weddings.filter(w=>w.id!==id);if(db.selected===id)db.selected=db.weddings[0].id;save();showWeddings()}}
+function showTeamLegacy(){
+ const t=current().team;
+ app.innerHTML=`<h2>Команда свадьбы</h2><div class="card">
+ ${teamInput('host','🎤 Ведущий',t.host)}${teamInput('photographer','📷 Фотограф',t.photographer)}${teamInput('decorator','🌿 Оформители',t.decorator)}${teamInput('organizer','📋 Организатор',t.organizer)}${teamInput('specialEffects','✨ Спецэффекты',t.specialEffects)}${teamInput('makeup','💄 Визажисты',t.makeup)}${teamInput('other','👤 Другое',t.other)}
+ </div><div class="notice">Все данные относятся к выбранной свадьбе.</div>`;
+}
+function teamInput(k,label,v){return `<label>${label}</label><input value="${esc(v)}" onchange="current().team['${k}']=this.value;save()">`}
+function showEquipment(){
+ const q=current().equipment;
+ app.innerHTML=`<h2>Техника фотографа</h2><div class="card"><label>Камера</label><input value="${esc(q.camera)}" onchange="current().equipment.camera=this.value;save()"><label>Объективы</label><textarea onchange="current().equipment.lenses=this.value;save()">${esc(q.lenses)}</textarea><label>Вспышки</label><input value="${esc(q.flash)}" onchange="current().equipment.flash=this.value;save()"><label>Свет</label><input value="${esc(q.light)}" onchange="current().equipment.light=this.value;save()"><label>Вторая камера</label><input value="${esc(q.secondCamera)}" onchange="current().equipment.secondCamera=this.value;save()"><div class="check"><input type="checkbox" ${q.drone?'checked':''} onchange="current().equipment.drone=this.checked;save()"><label>Дрон</label></div><div class="check"><input type="checkbox" ${q.secondPhotographer?'checked':''} onchange="current().equipment.secondPhotographer=this.checked;save()"><label>Второй фотограф</label></div><label>Заметки</label><textarea onchange="current().equipment.notes=this.value;save()">${esc(q.notes)}</textarea></div>`;
+}
+function showSettings(){
+ const hasLegacy=LEGACY_KEYS.some(k=>!!localStorage.getItem(k));
+ app.innerHTML=`<h2>Настройки</h2><div class="card"><b>Общие настройки техники по умолчанию</b><label>Камера</label><input value="${esc(db.settings.camera)}" onchange="db.settings.camera=this.value;save()"><label>Объективы</label><textarea onchange="db.settings.lenses=this.value;save()">${esc(db.settings.lenses)}</textarea><label>Вспышки</label><input value="${esc(db.settings.flash||'')}" onchange="db.settings.flash=this.value;save()"><label>Свет</label><input value="${esc(db.settings.light||'')}" onchange="db.settings.light=this.value;save()"><label>Вторая камера</label><input value="${esc(db.settings.secondCamera||'')}" onchange="db.settings.secondCamera=this.value;save()"></div>
+ <div class="card"><b>🔄 База данных</b><p class="muted">База предыдущей версии переносится автоматически, если она найдена.</p>${hasLegacy?'<div class="notice">Найдена база предыдущей версии.</div>':''}<button class="primary" style="width:100%;margin-top:8px" onclick="migrateFromLegacyNow()">🔄 Подтянуть базу предыдущей версии</button><button class="secondary" style="width:100%;margin-top:8px" onclick="exportDatabase()">⬇️ Экспортировать базу</button><label style="display:block;margin-top:10px">Импорт базы</label><input id="importFile" type="file" accept=".json,application/json" onchange="importDatabase(this.files[0])"></div>
+ <div class="card"><b>Свадьбы</b><p class="muted">Можно создавать сколько угодно отдельных свадеб. Все данные каждой свадьбы хранятся отдельно.</p><button class="secondary" onclick="showWeddings()">Открыть список свадеб</button></div><div class="card"><button class="secondary danger" style="width:100%" onclick="resetAll()">Сбросить все данные приложения</button></div>`;
+}
+function migrateFromLegacyNow(){
+ let found=null,src='';for(const k of LEGACY_KEYS){const raw=localStorage.getItem(k);if(raw){try{const d=JSON.parse(raw);if(d&&Array.isArray(d.weddings)){found=d;src=k;break;}}catch(e){}}}
+ if(!found)return alert('База предыдущей версии не найдена.');db=found;db.weddings.forEach(w=>{normalizeWedding(w);ensureOperational(w);syncRouteToEvents(w)});save();alert('База перенесена из '+src+'.');showWeddings();
+}
+function exportDatabase(){
+ const blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='wedding-database-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+function importDatabase(file){
+ if(!file)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!d||!Array.isArray(d.weddings))throw 0;db=d;db.weddings.forEach(w=>{normalizeWedding(w);ensureOperational(w);syncRouteToEvents(w)});save();alert('База импортирована.');showWeddings();}catch(e){alert('Не удалось импортировать базу. Проверь файл резервной копии.')}};r.readAsText(file);
+}
+function resetAll(){if(confirm('Удалить все свадьбы и настройки?')){localStorage.removeItem(KEY);location.reload()}}
+showWeddings();
+</script>
+<script id="v24-contact-functions">
+function v24Phone(phone){let p=String(phone||'').trim().replace(/[^\d+]/g,'');if(/^8\d{10}$/.test(p))p='+7'+p.slice(1);return p}
+function v24Digits(phone){return v24Phone(phone).replace(/\D/g,'')}
+function v24Call(phone){const p=v24Phone(phone);if(p)location.href='tel:'+p}
+function v24WA(phone){const p=v24Digits(phone);if(p)location.href='https://wa.me/'+p}
+function v24TG(value){const raw=String(value||'').trim();if(!raw)return;const username=raw.replace(/^@/,'');if(/^[A-Za-z0-9_]{5,32}$/.test(username)&&!/^\+?\d/.test(username))location.href='https://t.me/'+username;else{const p=v24Digits(raw);if(p)location.href='tg://resolve?phone='+p}}
+function v24Copy(phone,btn){const p=v24Phone(phone);if(!p)return;navigator.clipboard?.writeText(p).then(()=>{if(btn){let x=btn.innerHTML;btn.innerHTML='✓';setTimeout(()=>btn.innerHTML=x,1000)}})}
+function v24Stop(e){if(e){e.preventDefault();e.stopPropagation()}}
+function v24Actions(phone){if(!phone)return '';const q=String(phone).replace(/\\/g,'\\\\').replace(/'/g,"\\'");return `<div class="v24-contact-actions"><button class="secondary" onclick="v24Stop(event);v24Call('${q}')">📞</button><button class="secondary" onclick="v24Stop(event);v24WA('${q}')">💬</button><button class="secondary" onclick="v24Stop(event);v24TG('${q}')">✈️</button><button class="secondary" onclick="v24Stop(event);v24Copy('${q}',this)">📋</button></div>`}
+function v24TelegramAction(value){if(!value)return '';const q=String(value).replace(/\\/g,'\\\\').replace(/'/g,"\\'");return `<button class="secondary" onclick="v24Stop(event);v24TG('${q}')">✈️ TG</button>`}
+</script>
+
+<script id="v33-ios-swipe-back">
+(function(){
+  // iOS-style edge swipe back. Keeps the existing app/database untouched.
+  const SWIPE_EDGE = 42;
+  const SWIPE_TRIGGER = 70;
+  const SWIPE_VERTICAL_MAX = 55;
+  let sx=0, sy=0, tracking=false, blocked=false;
+  const navStack = [{name:'showWeddings', args:[]}];
+  let replaying = false;
+
+  function installHistoryWrappers(){
+    const names = [
+      'showWeddings','showCalendar','showWeddingGroup','showCurrent','showClientBase',
+      'showIdeas','showStats','showReminders','showLeads','showBusiness','showMoreMenu',
+      'showChecklists','showTasks','showSettings','showTeam','showEquipment','showContract',
+      'showContacts','showLocations','showTimeline','showClientProfile','showMoney',
+      'showLogistics','showWishes','showGuests','showFinance','showBackupControl',
+      'showShootPlan','showSound','showPost','showShotList','showBusiness',
+      'openWedding','editWedding'
+    ];
+    names.forEach(name=>{
+      const fn=window[name];
+      if(typeof fn!=='function' || fn.__v33Wrapped) return;
+      function wrapped(){
+        const args=Array.from(arguments);
+        if(!replaying){
+          const last=navStack[navStack.length-1];
+          const same=last && last.name===name && JSON.stringify(last.args)===JSON.stringify(args);
+          if(!same) navStack.push({name,args}); if(window.__v35UpdateBack) window.__v35UpdateBack();
+          if(navStack.length>30) navStack.splice(1,navStack.length-30);
+        }
+        return fn.apply(this,args);
+      }
+      wrapped.__v33Wrapped=true;
+      window[name]=wrapped;
+    });
+  }
+
+  function goBack(){
+    const modal=document.getElementById('modal');
+    if(modal && modal.classList.contains('show')){
+      if(typeof window.closeModal==='function') window.closeModal();
+      return;
+    }
+    if(navStack.length<=1) return;
+    navStack.pop(); if(window.__v35UpdateBack) window.__v35UpdateBack();
+    const prev=navStack[navStack.length-1];
+    const fn=window[prev.name];
+    if(typeof fn!=='function') return;
+    replaying=true;
+    try{ fn.apply(window,prev.args||[]); } finally { replaying=false; }
+  }
+
+  function onStart(e){
+    if(!e.touches || e.touches.length!==1) return;
+    const t=e.touches[0];
+    sx=t.clientX; sy=t.clientY;
+    tracking=sx<=SWIPE_EDGE;
+    blocked=!!e.target.closest('input,textarea,select,button,[contenteditable="true"]');
+  }
+  function onMove(e){
+    if(!tracking || blocked || !e.touches || e.touches.length!==1) return;
+    const t=e.touches[0], dx=t.clientX-sx, dy=Math.abs(t.clientY-sy);
+    if(dx>12 && dy<SWIPE_VERTICAL_MAX && e.cancelable) e.preventDefault();
+  }
+  function onEnd(e){
+    if(!tracking || blocked) {tracking=false; return;}
+    const t=e.changedTouches && e.changedTouches[0];
+    if(t){
+      const dx=t.clientX-sx, dy=Math.abs(t.clientY-sy);
+      if(dx>=SWIPE_TRIGGER && dy<=SWIPE_VERTICAL_MAX) goBack();
+    }
+    tracking=false;
+  }
+
+  installHistoryWrappers();
+  window.addEventListener('touchstart',onStart,{passive:true});
+  window.addEventListener('touchmove',onMove,{passive:false});
+  window.addEventListener('touchend',onEnd,{passive:true});
+  window.__v33SwipeBack={goBack,navStack};
+})();
+</script>
+
+
+<script id="v35-navigation-polish">
+(function(){
+  const appEl=document.getElementById('app');
+  if(appEl){const d=Object.getOwnPropertyDescriptor(Element.prototype,'innerHTML'); if(d&&d.set&&!window.__v35InnerHTML){Object.defineProperty(appEl,'innerHTML',{configurable:true,get:d.get,set:function(v){d.set.call(this,v);this.classList.remove('page-enter');void this.offsetWidth;this.classList.add('page-enter');}});window.__v35InnerHTML=true;}}
+  window.__v35UpdateBack=function(){const b=document.getElementById('v35Back');if(b&&window.__v33SwipeBack)b.classList.toggle('visible',window.__v33SwipeBack.navStack.length>1);};
+  setTimeout(window.__v35UpdateBack,50);
+})();
+</script>
+
+<script id="v43-calendar-actions">
+(function(){
+  db.events ||= [];
+  function v43dateLabel(iso){return new Intl.DateTimeFormat('ru-RU',{day:'numeric',month:'long',year:'numeric'}).format(new Date(iso+'T12:00:00'))}
+  window.v43CalendarDate=function(date){
+    const existing=(db.weddings||[]).filter(w=>w.date===date&&!w.archived);
+    const events=(db.events||[]).filter(e=>e.date===date);
+    openModal('Действие на дату',`
+      <div class="v43-date-modal">
+        <div class="v43-date-big">${v43dateLabel(date)}</div>
+        <div class="v43-date-sub">${existing.length?`Свадьба: ${esc(existing.map(w=>w.names||'Без названия').join(', '))}`:'Дата свободна'}${events.length?` · Событий: ${events.length}`:''}</div>
+        <button class="secondary v43-date-action" onclick="closeModal();newWeddingOnDate('${date}')">
+          <span class="ico">💍</span><span><b>Создать свадьбу</b><small>Открыть карточку новой свадьбы</small></span>
+        </button>
+        <button class="secondary v43-date-action" onclick="closeModal();newEventOnDate('${date}')">
+          <span class="ico">📌</span><span><b>Создать событие</b><small>Встреча, съёмка, созвон или другое дело</small></span>
+        </button>
+        ${existing.map(w=>`<button class="secondary v43-date-action" onclick="closeModal();openWedding(${w.id})"><span class="ico">📅</span><span><b>Открыть ${esc(w.names||'свадьбу')}</b><small>Перейти к карточке свадьбы</small></span></button>`).join('')}
+        ${events.map(e=>`<div class="card" style="margin:8px 0"><b>📌 ${esc(e.title)}</b><div class="muted">${esc(e.time||'Весь день')} · ${esc(e.note||'')}</div></div>`).join('')}
+      </div>`);
+  };
+  window.newWeddingOnDate=function(date){
+    editWedding(0);
+    setTimeout(()=>{const x=document.getElementById('wDate');if(x)x.value=date},20);
+  };
+  window.newEventOnDate=function(date){
+    openModal('Новое событие',`
+      <label>Название события</label><input id="v43EventTitle" placeholder="Например: встреча с клиентом">
+      <div class="formgrid"><div><label>Начало</label><input id="v43EventTime" type="time" value="12:00"></div><div><label>Конец</label><input id="v43EventEnd" type="time"></div></div>
+      <label>Место</label><input id="v43EventPlace" placeholder="Адрес / локация">
+      <label>Комментарий</label><textarea id="v43EventNote" placeholder="Что нужно сделать"></textarea>
+      <div class="actions"><button class="primary" onclick="saveCalendarEvent('${date}')">Сохранить</button><button class="secondary" onclick="closeModal()">Отмена</button></div>`);
+  };
+  window.saveCalendarEvent=function(date){
+    const title=(document.getElementById('v43EventTitle')?.value||'').trim();
+    if(!title){alert('Введите название события');return}
+    db.events ||= [];
+    db.events.push({id:'evt_'+Date.now(),date,title,time:document.getElementById('v43EventTime')?.value||'',endTime:document.getElementById('v43EventEnd')?.value||'',place:document.getElementById('v43EventPlace')?.value||'',note:document.getElementById('v43EventNote')?.value||''});
+    save();closeModal();showCalendar(window.calendarMonthOffset||0);
+  };
+})();
+</script>
+
+<script id="v43-offline-registration">
+(function(){
+  if (!('serviceWorker' in navigator)) return;
+  window.addEventListener('load', function(){
+    navigator.serviceWorker.register('./sw.js', {scope:'./'})
+      .then(function(reg){
+        if (reg.waiting) reg.waiting.postMessage('SKIP_WAITING');
+        reg.update();
+      }).catch(function(){});
+  });
+})();
+</script>
+
+<style id="v43-offline-status">
+#v43OfflineStatus{
+ position:fixed;left:50%;top:max(8px,env(safe-area-inset-top));
+ transform:translateX(-50%);z-index:99999;
+ padding:6px 11px;border-radius:999px;font:600 12px -apple-system,BlinkMacSystemFont,sans-serif;
+ background:rgba(60,60,67,.88);color:#fff;backdrop-filter:blur(12px);
+ opacity:0;pointer-events:none;transition:opacity .2s ease;
+}
+#v43OfflineStatus.show{opacity:1}
+</style>
+<script id="v43-offline-status">
+(function(){
+  var el;
+  function show(msg){
+    if(!el){el=document.createElement('div');el.id='v43OfflineStatus';document.body.appendChild(el)}
+    el.textContent=msg;el.classList.add('show');
+    clearTimeout(window.__v43offlineTimer);
+    window.__v43offlineTimer=setTimeout(function(){el.classList.remove('show')},1800);
+  }
+  window.addEventListener('offline',function(){show('Нет интернета — офлайн режим')});
+  window.addEventListener('online',function(){show('Интернет восстановлен')});
+})();
+</script>
+</body>
+</html>
